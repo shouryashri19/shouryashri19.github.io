@@ -50,10 +50,10 @@ const themeInit = `
   (function() {
     try {
       var saved = localStorage.getItem('site-theme');
-      var useDark = saved ? saved === 'dark' : false;
+      var useDark = saved ? saved === 'dark' : true;
       document.documentElement.classList.toggle('dark', useDark);
     } catch (e) {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('dark');
     }
   })();
 `;
