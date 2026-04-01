@@ -8,16 +8,26 @@ export function generateStaticParams() {
   return getTags().map((tag) => ({ tag: tag.toLowerCase() }));
 }
 
-export function generateMetadata({ params }: { params: { tag: string } }): Metadata {
-  const normalizedTag = decodeURIComponent(params.tag);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}): Promise<Metadata> {
+  const { tag } = await params;
+  const normalizedTag = decodeURIComponent(tag);
   return {
     title: `Tag: ${normalizedTag}`,
     description: `Articles tagged ${normalizedTag}`,
   };
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
-  const normalizedTag = decodeURIComponent(params.tag).toLowerCase();
+export default async function TagPage({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}) {
+  const { tag } = await params;
+  const normalizedTag = decodeURIComponent(tag).toLowerCase();
   const tags = getTags();
   const tagMatch = tags.find((tag) => tag.toLowerCase() === normalizedTag);
 

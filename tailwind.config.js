@@ -10,7 +10,14 @@ module.exports = {
       colors: {
         paper: "#f8f7f4",
         ink: "#0f172a",
-        slate: "#334155",
+        slate: {
+          DEFAULT: "#334155",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          500: "#64748b",
+          700: "#334155",
+        },
         navy: "#1e2f4f",
         steel: "#46617f",
         pine: "#1f4d3f",
