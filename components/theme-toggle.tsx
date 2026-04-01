@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     const saved = window.localStorage.getItem("site-theme") as Theme | null;
-    const resolved: Theme = saved ?? "dark";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const resolved: Theme = saved ?? (prefersDark ? "dark" : "light");
     setTheme(resolved);
     document.documentElement.classList.toggle("dark", resolved === "dark");
   }, []);
@@ -25,7 +26,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="rounded-[8px] border border-slate-300/25 bg-slate-300/10 px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-steel/50 hover:text-ink"
+      className="rounded-[8px] border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-carbon dark:text-slate-300 dark:hover:bg-slate-900"
       aria-label="Toggle dark mode"
     >
       {theme === "dark" ? "Light" : "Dark"}

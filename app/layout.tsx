@@ -50,18 +50,17 @@ const themeInit = `
   (function() {
     try {
       var saved = localStorage.getItem('site-theme');
-      var useDark = saved ? saved === 'dark' : true;
-      document.documentElement.classList.toggle('dark', useDark);
-    } catch (e) {
-      document.documentElement.classList.add('dark');
-    }
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var useDark = saved ? saved === 'dark' : prefersDark;
+      if (useDark) document.documentElement.classList.add('dark');
+    } catch (e) {}
   })();
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="min-h-screen">
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInit}
         </Script>
