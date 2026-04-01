@@ -6,22 +6,26 @@
 
 :root {
   color-scheme: light;
-  --bg: #f8fafc;
-  --surface: #ffffff;
+  --bg: #f4f7fb;
+  --bg-2: #e7eef9;
+  --panel: #ffffff;
+  --panel-2: #f3f7ff;
   --text: #111827;
-  --text-secondary: #4b5563;
-  --line: #e5e7eb;
-  --accent: #1e3a8a;
+  --muted: #4b5563;
+  --line: #dbe3f1;
+  --accent: #1f3e88;
 }
 
 .dark {
   color-scheme: dark;
-  --bg: #0b0f14;
-  --surface: #111827;
-  --text: #e5e7eb;
-  --text-secondary: #9ca3af;
-  --line: #1f2937;
-  --accent: #3b82f6;
+  --bg: #0a1224;
+  --bg-2: #0f1b36;
+  --panel: rgba(15, 26, 51, 0.9);
+  --panel-2: rgba(22, 36, 67, 0.8);
+  --text: #eaf0ff;
+  --muted: #aab8d4;
+  --line: rgba(122, 162, 224, 0.24);
+  --accent: #4d78c8;
 }
 
 html {
@@ -29,24 +33,28 @@ html {
 }
 
 body {
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 12% -10%, rgba(77, 120, 200, 0.32), transparent 56%),
+    radial-gradient(1000px 460px at 92% 0%, rgba(31, 62, 136, 0.28), transparent 52%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
   color: var(--text);
   @apply font-body antialiased;
 }
 
 main {
-  @apply mx-auto w-full max-w-[1160px] px-6;
+  @apply mx-auto w-full max-w-[1180px] px-6;
 }
 
 main > div,
 main > article {
-  animation: fade-in-up 0.28s ease-out;
+  animation: reveal 0.34s ease-out;
 }
 
-@keyframes fade-in-up {
+@keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -56,20 +64,29 @@ main > article {
 
 .section-panel {
   border: 1px solid var(--line);
-  background: var(--surface);
-  @apply rounded-[12px] shadow-card;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--panel) 92%, transparent), color-mix(in srgb, var(--panel-2) 95%, transparent));
+  backdrop-filter: blur(4px);
+  @apply rounded-[14px] shadow-card;
 }
 
 .metric-strip {
   border: 1px solid var(--line);
-  background: var(--surface);
-  @apply rounded-[12px];
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--panel) 92%, transparent), color-mix(in srgb, var(--panel-2) 88%, transparent));
+  @apply rounded-[14px] shadow-card;
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(121, 162, 224, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 162, 224, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .article {
-  max-width: 700px;
+  max-width: 720px;
   @apply mx-auto space-y-6;
-  color: var(--text-secondary);
+  color: var(--muted);
 }
 
 .article h1,
@@ -92,7 +109,7 @@ main > article {
 }
 
 .article p {
-  @apply text-[16px] leading-[1.7];
+  @apply text-[16px] leading-[1.72];
 }
 
 .article ul {
@@ -100,15 +117,15 @@ main > article {
 }
 
 .article code {
-  @apply rounded bg-slate-100 px-1 py-0.5 text-sm dark:bg-slate-800;
+  @apply rounded bg-slate-200 px-1 py-0.5 text-sm dark:bg-slate-300/20;
 }
 
 .article pre {
-  @apply overflow-x-auto rounded-[10px] bg-slate-900 p-5 text-slate-100;
+  @apply overflow-x-auto rounded-[12px] bg-midnight p-5 text-slate-900;
 }
 
 .article pre code {
-  @apply bg-transparent p-0 text-slate-100;
+  @apply bg-transparent p-0 text-slate-900;
 }
 
 a,
@@ -118,21 +135,24 @@ button {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--accent) 60%, transparent) transparent;
+  scrollbar-color: color-mix(in srgb, var(--accent) 65%, transparent) transparent;
 }
 
 .dark .text-ink {
-  color: #e5e7eb !important;
+  color: #eaf0ff !important;
 }
 
 .dark .text-slate {
-  color: #9ca3af !important;
+  color: #aab8d4 !important;
 }
 
-.dark .bg-white {
-  background-color: #111827 !important;
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: rgba(122, 162, 224, 0.22) !important;
 }
 
-.dark .border-slate-200 {
-  border-color: #1f2937 !important;
+.dark .bg-white,
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: rgba(15, 26, 51, 0.75) !important;
 }

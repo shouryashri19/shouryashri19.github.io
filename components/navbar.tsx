@@ -8,10 +8,12 @@ import { siteConfig } from "@/lib/site-config";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/resume", label: "Experience" },
   { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
+  { href: "/certifications", label: "Certifications" },
+  { href: "/blog", label: "Writing" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -20,22 +22,22 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 h-16 border-b border-slate-200/90 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-carbon/95">
-      <div className="mx-auto flex h-full w-full max-w-[1160px] items-center justify-between px-6">
-        <Link href="/" className="font-heading text-[20px] font-semibold tracking-tight text-ink dark:text-slate-100">
+    <header className="sticky top-0 z-50 h-16 border-b border-slate-300/20 bg-midnight/85 backdrop-blur-xl dark:border-slate-300/20 dark:bg-midnight/85">
+      <div className="mx-auto flex h-full w-full max-w-[1180px] items-center justify-between px-6">
+        <Link href="/" className="font-heading text-[20px] font-semibold tracking-tight text-ink">
           {siteConfig.name}
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  "rounded-[8px] px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-navy dark:text-slate-300 dark:hover:text-steel",
-                  active && "bg-slate-100 text-navy dark:bg-slate-800 dark:text-steel",
+                  "rounded-[8px] px-3 py-2 text-[13px] font-medium text-slate-700 hover:bg-slate-300/10 hover:text-ink",
+                  active && "bg-slate-300/15 text-ink",
                 )}
               >
                 {item.label}
@@ -49,7 +51,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="rounded-[8px] border border-slate-300 px-3 py-2 text-[13px] font-medium text-slate-700 md:hidden dark:border-slate-700 dark:text-slate-300"
+            className="rounded-[8px] border border-slate-300/25 px-3 py-2 text-[13px] font-medium text-slate-700 lg:hidden"
             aria-label="Toggle navigation"
           >
             Menu
@@ -58,14 +60,14 @@ export function Navbar() {
       </div>
 
       {menuOpen ? (
-        <nav className="border-t border-slate-200 bg-white px-6 py-3 md:hidden dark:border-slate-700 dark:bg-carbon" aria-label="Mobile">
+        <nav className="border-t border-slate-300/20 bg-midnight/95 px-6 py-3 lg:hidden" aria-label="Mobile">
           <div className="grid gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-[8px] border border-slate-200 px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-navy hover:text-navy dark:border-slate-700 dark:text-slate-300"
+                className="rounded-[8px] border border-slate-300/15 px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-steel/50 hover:text-ink"
               >
                 {item.label}
               </Link>
