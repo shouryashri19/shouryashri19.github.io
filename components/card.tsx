@@ -10,7 +10,7 @@ export function Card({ children, className }: Props) {
   return (
     <article
       className={clsx(
-        "section-panel p-6 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:shadow-elevated",
+        "section-panel rounded-[12px] p-5 transition-all duration-200 ease-smooth hover:-translate-y-[2px] hover:shadow-raised",
         className,
       )}
     >

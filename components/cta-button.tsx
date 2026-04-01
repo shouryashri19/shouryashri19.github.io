@@ -10,13 +10,12 @@ type Props = {
 
 export function CtaButton({ href, children, variant = "primary" }: Props) {
   const classes = clsx(
-    "inline-flex items-center justify-center rounded-md px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 ease-premium",
+    "inline-flex items-center justify-center rounded-[8px] px-[18px] py-[10px] text-[13px] font-semibold tracking-tight transition-all duration-200 ease-smooth",
     variant === "primary" &&
-      "bg-navy text-white shadow-card hover:-translate-y-0.5 hover:bg-slate-900 dark:bg-steel dark:hover:bg-slate-200 dark:hover:text-slate-900",
+      "bg-navy text-white hover:bg-[#162c68] dark:bg-navy dark:hover:bg-[#274a9c]",
     variant === "secondary" &&
-      "border border-slate-300 bg-white text-ink hover:-translate-y-0.5 hover:border-navy hover:text-navy dark:border-slate-600 dark:bg-carbon dark:text-slate-100 dark:hover:border-steel",
-    variant === "ghost" &&
-      "text-navy hover:text-ink dark:text-slate-200 dark:hover:text-white",
+      "border border-slate-300 bg-white text-ink hover:bg-slate-50 dark:border-slate-700 dark:bg-carbon dark:text-slate-100 dark:hover:bg-slate-900",
+    variant === "ghost" && "text-navy hover:text-[#162c68] dark:text-steel dark:hover:text-slate-100",
   );
 
   return (

@@ -36,23 +36,21 @@ export function BlogExplorer({ posts, tags }: Props) {
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none ring-0 placeholder:text-slate-400 focus:border-steel dark:border-slate-600 dark:bg-carbon dark:text-slate-200"
+          className="w-full rounded-[8px] border border-slate-300 bg-white px-3 py-2 text-[15px] text-slate-800 outline-none ring-0 placeholder:text-slate-400 focus:border-navy dark:border-slate-700 dark:bg-carbon dark:text-slate-200"
           placeholder="Search by title, topic, or keyword"
           aria-label="Search blog posts"
         />
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate dark:text-slate-300">
-          {filtered.length} post(s)
-        </p>
+        <p className="text-[13px] text-slate-500 dark:text-slate-400">{filtered.length} post(s)</p>
       </div>
 
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
           onClick={() => setSelectedTag("all")}
-          className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.13em] transition-all duration-300 ease-premium ${
+          className={`rounded-[8px] border px-2.5 py-1 text-[13px] transition-all duration-200 ease-smooth ${
             selectedTag === "all"
               ? "border-navy bg-navy text-white dark:border-steel dark:bg-steel"
-              : "border-slate-300 bg-white text-slate hover:border-steel hover:text-navy dark:border-slate-700 dark:bg-carbon dark:text-slate-300"
+              : "border-slate-300 bg-white text-slate hover:border-navy hover:text-navy dark:border-slate-700 dark:bg-carbon dark:text-slate-300"
           }`}
         >
           All
@@ -62,10 +60,10 @@ export function BlogExplorer({ posts, tags }: Props) {
             key={tag}
             type="button"
             onClick={() => setSelectedTag(tag.toLowerCase())}
-            className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.13em] transition-all duration-300 ease-premium ${
+            className={`rounded-[8px] border px-2.5 py-1 text-[13px] transition-all duration-200 ease-smooth ${
               selectedTag === tag.toLowerCase()
                 ? "border-navy bg-navy text-white dark:border-steel dark:bg-steel"
-                : "border-slate-300 bg-white text-slate hover:border-steel hover:text-navy dark:border-slate-700 dark:bg-carbon dark:text-slate-300"
+                : "border-slate-300 bg-white text-slate hover:border-navy hover:text-navy dark:border-slate-700 dark:bg-carbon dark:text-slate-300"
             }`}
           >
             {tag}
@@ -80,7 +78,7 @@ export function BlogExplorer({ posts, tags }: Props) {
       </section>
 
       {filtered.length === 0 ? (
-        <div className="section-panel p-6 text-sm text-slate dark:text-slate-300">
+        <div className="section-panel p-6 text-[15px] text-slate dark:text-slate-300">
           No posts match the current filters. Try a broader keyword.
         </div>
       ) : null}

@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,24 +6,22 @@
 
 :root {
   color-scheme: light;
-  --bg: #f7f7f4;
-  --bg-soft: #eef2f7;
-  --panel: #ffffff;
+  --bg: #f8fafc;
+  --surface: #ffffff;
   --text: #111827;
-  --muted: #425467;
-  --line: #d8e0ea;
-  --accent: #1d3557;
+  --text-secondary: #4b5563;
+  --line: #e5e7eb;
+  --accent: #1e3a8a;
 }
 
 .dark {
   color-scheme: dark;
-  --bg: #0b1220;
-  --bg-soft: #0f1a2d;
-  --panel: #101b30;
-  --text: #e5ecf5;
-  --muted: #9eb0c6;
-  --line: #24364f;
-  --accent: #8aa8cf;
+  --bg: #0b0f14;
+  --surface: #111827;
+  --text: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --line: #1f2937;
+  --accent: #3b82f6;
 }
 
 html {
@@ -31,23 +29,21 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--bg-soft) 60%, transparent) 0, transparent 48%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   @apply font-body antialiased;
 }
 
 main {
-  @apply mx-auto w-full max-w-6xl px-5;
+  @apply mx-auto w-full max-w-[1160px] px-6;
 }
 
-/* Deliberate, subtle page transition for route changes. */
 main > div,
 main > article {
-  animation: page-enter 440ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: fade-in-up 0.28s ease-out;
 }
 
-@keyframes page-enter {
+@keyframes fade-in-up {
   from {
     opacity: 0;
     transform: translateY(6px);
@@ -60,42 +56,43 @@ main > article {
 
 .section-panel {
   border: 1px solid var(--line);
-  background: var(--panel);
-  @apply rounded-xl shadow-card;
+  background: var(--surface);
+  @apply rounded-[12px] shadow-card;
 }
 
 .metric-strip {
   border: 1px solid var(--line);
-  background: linear-gradient(120deg, color-mix(in srgb, var(--panel) 100%, transparent), color-mix(in srgb, var(--bg-soft) 55%, transparent));
-  @apply rounded-xl;
+  background: var(--surface);
+  @apply rounded-[12px];
 }
 
 .article {
-  @apply space-y-6;
-  color: var(--muted);
+  max-width: 700px;
+  @apply mx-auto space-y-6;
+  color: var(--text-secondary);
 }
 
 .article h1,
 .article h2,
 .article h3 {
   color: var(--text);
-  @apply font-heading;
+  @apply font-heading tracking-tight;
 }
 
 .article h1 {
-  @apply text-3xl md:text-4xl;
+  @apply text-[40px] leading-tight;
 }
 
 .article h2 {
-  @apply mt-10 text-2xl md:text-3xl;
+  @apply mt-10 text-[30px] leading-tight;
 }
 
 .article h3 {
-  @apply mt-8 text-xl md:text-2xl;
+  @apply mt-8 text-[22px] leading-tight;
 }
 
 .article p {
-  @apply text-base leading-8 md:text-lg;
+  @apply text-[16px] leading-[1.7];
 }
 
 .article ul {
@@ -107,7 +104,7 @@ main > article {
 }
 
 .article pre {
-  @apply overflow-x-auto rounded-lg bg-slate-900 p-5 text-slate-100;
+  @apply overflow-x-auto rounded-[10px] bg-slate-900 p-5 text-slate-100;
 }
 
 .article pre code {
@@ -116,27 +113,26 @@ main > article {
 
 a,
 button {
-  @apply transition-all duration-300 ease-premium;
+  @apply transition-all duration-200 ease-smooth;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--accent) 45%, transparent) transparent;
+  scrollbar-color: color-mix(in srgb, var(--accent) 60%, transparent) transparent;
 }
 
-/* Dark mode fallback overrides for existing utility classes used across pages. */
 .dark .text-ink {
-  color: #e5ecf5 !important;
+  color: #e5e7eb !important;
 }
 
 .dark .text-slate {
-  color: #9eb0c6 !important;
+  color: #9ca3af !important;
 }
 
 .dark .bg-white {
-  background-color: #101b30 !important;
+  background-color: #111827 !important;
 }
 
 .dark .border-slate-200 {
-  border-color: #24364f !important;
+  border-color: #1f2937 !important;
 }
