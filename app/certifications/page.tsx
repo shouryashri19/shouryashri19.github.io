@@ -1,7 +1,13 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { CertificationCard } from "@/components/certification-card";
-import { certificationCredentialRoadmap, certifications, topCertifications } from "@/content/data/profile";
+import {
+  certificationCredentialRoadmap,
+  certificationDocuments,
+  certifications,
+  topCertifications,
+} from "@/content/data/profile";
 
 export const metadata: Metadata = {
   title: "Certifications",
@@ -41,6 +47,20 @@ export default function CertificationsPage() {
         <ul className="space-y-2 text-slate">
           {certificationCredentialRoadmap.map((item) => (
             <li key={item}>- {item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section-panel space-y-4 p-5">
+        <h2 className="font-heading text-2xl text-ink">Certificate Document Library</h2>
+        <p className="text-sm text-slate">All uploaded certificate files are available below.</p>
+        <ul className="grid gap-2 md:grid-cols-2">
+          {certificationDocuments.map((doc) => (
+            <li key={doc.url}>
+              <Link href={doc.url} target="_blank" rel="noreferrer" className="text-sm font-medium text-navy hover:text-ink">
+                {doc.title}
+              </Link>
+            </li>
           ))}
         </ul>
       </section>

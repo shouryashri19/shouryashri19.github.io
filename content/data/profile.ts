@@ -53,6 +53,11 @@ export type FeaturedWorkItem = {
   url?: string;
 };
 
+export type CertificationDocumentItem = {
+  title: string;
+  url: string;
+};
+
 export const profile = {
   name: "Shourya Shrivastava",
   headline:
@@ -341,6 +346,7 @@ export const certifications: CertificationItem[] = [
     name: "Bloomberg Market Concepts",
     issuer: "Bloomberg for Education",
     date: "2026",
+    credentialUrl: "/certificates/bloomberg-mc.pdf",
     relevance: "high",
     source: "resume+linkedin",
   },
@@ -348,6 +354,7 @@ export const certifications: CertificationItem[] = [
     name: "Bloomberg Spreadsheet Analysis",
     issuer: "Bloomberg for Education",
     date: "2026",
+    credentialUrl: "/certificates/bloomberg-spreadsheet-analysis.pdf",
     relevance: "high",
     source: "resume+linkedin",
   },
@@ -355,6 +362,7 @@ export const certifications: CertificationItem[] = [
     name: "J.P. Morgan Investment Banking Simulation",
     issuer: "Forage",
     date: "2025",
+    credentialUrl: "/certificates/forage-jpm.pdf",
     relevance: "high",
     source: "resume+linkedin",
   },
@@ -362,6 +370,7 @@ export const certifications: CertificationItem[] = [
     name: "BCG Strategy Consulting Simulation",
     issuer: "BCG Forage",
     date: "2024",
+    credentialUrl: "/certificates/bcg.pdf",
     relevance: "core",
     source: "resume+linkedin",
   },
@@ -369,6 +378,7 @@ export const certifications: CertificationItem[] = [
     name: "PwC Consulting Experience Program",
     issuer: "PwC Forage",
     date: "2023",
+    credentialUrl: "/certificates/pwc-us-completion-certificate.pdf",
     relevance: "core",
     source: "resume+linkedin",
   },
@@ -407,6 +417,27 @@ export const certificationCredentialRoadmap = [
   "PwC Consulting Experience Program (Forage, 2023)",
   "Google Data Analytics Specialization (Coursera, 2023)",
   "Data Analysis with R Programming (Coursera, 2023)",
+];
+
+export const certificationDocuments: CertificationDocumentItem[] = [
+  { title: "BCG.pdf", url: "/certificates/bcg.pdf" },
+  { title: "Bloomberg for Education.pdf", url: "/certificates/bloomberg-for-education.pdf" },
+  { title: "Bloomberg MC.pdf", url: "/certificates/bloomberg-mc.pdf" },
+  { title: "Bloomberg Spreadsheet Analysis", url: "/certificates/bloomberg-spreadsheet-analysis.pdf" },
+  { title: "Case heist srcc certificate.pdf", url: "/certificates/case-heist-srcc-certificate.pdf" },
+  { title: "Coursera Certificate 2.pdf", url: "/certificates/coursera-certificate-2.pdf" },
+  { title: "Coursera certificate 3.pdf", url: "/certificates/coursera-certificate-3.pdf" },
+  { title: "Coursera Certificate 4.pdf", url: "/certificates/coursera-certificate-4.pdf" },
+  { title: "Coursera Certificate 5.pdf", url: "/certificates/coursera-certificate-5.pdf" },
+  { title: "Coursera Certificate 6.pdf", url: "/certificates/coursera-certificate-6.pdf" },
+  { title: "Coursera Certificate 7.pdf", url: "/certificates/coursera-certificate-7.pdf" },
+  { title: "Coursera Certificate 8.pdf", url: "/certificates/coursera-certificate-8.pdf" },
+  { title: "Coursera Certificate FINAL.pdf", url: "/certificates/coursera-certificate-final.pdf" },
+  { title: "Coursera Certificate Shourya.pdf", url: "/certificates/coursera-certificate-shourya.pdf" },
+  { title: "Forage JPM.pdf", url: "/certificates/forage-jpm.pdf" },
+  { title: "PM Coursera 1.pdf", url: "/certificates/pm-coursera-1.pdf" },
+  { title: "PM Coursera 2.pdf", url: "/certificates/pm-coursera-2.pdf" },
+  { title: "pwc US completion certificate.pdf", url: "/certificates/pwc-us-completion-certificate.pdf" },
 ];
 
 export const additionalHighlights = [
