@@ -171,7 +171,30 @@ export const projects: ProjectItem[] = [
       "Applied DCF valuation and sensitivity analysis to stress test assumptions.",
       "Converted model outputs into product-level commercial recommendations for stakeholders.",
     ],
+    projectUrl: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    projectUrlLabel: "View Project Folder",
+    projectUrlNote: "Financial Model and Supporting Files",
     source: "resume+linkedin",
+  },
+  {
+    slug: "multiple-linear-regression-retail-sales-electricity-2014-2024",
+    title: "Multiple Linear Regression Analysis on Retail Sales of Electricity (2014-2024)",
+    subtitle: "Econometric Analysis Project",
+    category: "Markets",
+    summary:
+      "Built a regression-based analysis of electricity retail sales over the 2014-2024 period to evaluate variable relationships and forecasting implications.",
+    whyItMatters:
+      "Demonstrates applied statistical modeling in a market-linked dataset and strengthens data-driven analytical positioning for finance and strategy roles.",
+    tools: ["Multiple Linear Regression", "Data Analysis", "Model Interpretation"],
+    highlights: [
+      "Analyzed historical retail electricity sales trends across a 10-year time window.",
+      "Used multiple linear regression to evaluate driver sensitivity and explanatory significance.",
+      "Documented model outputs and interpretation in a structured project folder.",
+    ],
+    projectUrl: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    projectUrlLabel: "View Project Folder",
+    projectUrlNote: "Project Files and Analysis Outputs",
+    source: "linkedin",
   },
   {
     slug: "hypergeometric-distribution-financial-modelling",
@@ -239,10 +262,15 @@ export const linkedInHighlights = {
 export const featuredWork: FeaturedWorkItem[] = [
   {
     title: "Financial Modelling & Valuation - Procter & Gamble Health & Hygiene India",
+    url: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
   },
   {
     title: "Hypergeometric Distribution Research Publication",
     url: "https://www.ijaresm.com/uploaded_files/document_file/Shourya_Shrivastava7zCX.pdf",
+  },
+  {
+    title: "Multiple Linear Regression Analysis on Retail Sales of Electricity (2014-2024)",
+    url: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
   },
   {
     title: "Financial Forecasting & Variance Analysis Dashboards (Yes Bank Internship)",
