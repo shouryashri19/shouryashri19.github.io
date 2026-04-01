@@ -23,6 +23,8 @@ export type ProjectItem = {
   tools: string[];
   highlights: string[];
   projectUrl?: string;
+  projectLinkLabel?: string;
+  projectLinkNote?: string;
   source: "resume" | "linkedin" | "resume+linkedin";
 };
 
@@ -158,67 +160,23 @@ export const projects: ProjectItem[] = [
     source: "resume+linkedin",
   },
   {
-    title: "Pricing Analytics Dashboard Suite",
-    subtitle: "Yes Bank Internship Project",
-    category: "Business Analytics",
-    summary:
-      "Built dashboards and variance-analysis views for budget-versus-actual tracking across multiple business segments.",
-    whyItMatters:
-      "Shows ability to convert large raw datasets into management-ready views for pricing and operating decisions.",
-    tools: ["Excel", "R", "Variance Analysis", "Data Validation"],
-    highlights: [
-      "Managed and organized 5,000+ data points spanning 10+ segments.",
-      "Developed reporting outputs used for cross-functional pricing discussions.",
-      "Supported requirement gathering to keep analysis aligned with operational workflows.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
-    title: "ERP Reporting and Cost Optimization Analysis",
-    subtitle: "UFlex Research Internship",
-    category: "Research",
-    summary:
-      "Used Oracle NetSuite workflows and reporting to evaluate budget-to-actual performance and identify optimization opportunities.",
-    whyItMatters:
-      "Highlights operational finance analysis with measurable impact and systems-level execution discipline.",
-    tools: ["Oracle NetSuite", "Budget vs Actual", "UAT", "Reporting"],
-    highlights: [
-      "Identified INR 2M in cost optimization opportunities through structured analysis.",
-      "Supported UAT of reporting templates to improve output reliability.",
-      "Maintained high data integrity standards across finance workflows.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
-    title: "Revenue and Pricing Trend Intelligence",
-    subtitle: "MedTourEasy Analytics Traineeship",
-    category: "Markets",
-    summary:
-      "Analyzed operational and revenue trend data to support pricing intelligence and business decision-making.",
-    whyItMatters:
-      "Demonstrates practical use of analytics tools to support commercial and finance decisions in real project settings.",
-    tools: ["SQL", "R", "Tableau", "Power BI"],
-    highlights: [
-      "Built visual analytics outputs for revenue and pricing trend interpretation.",
-      "Presented findings in a stakeholder-friendly format under tight deadlines.",
-      "Resolved data-quality issues to improve signal reliability.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
     title: "Hypergeometric Distribution Application in Financial Modelling",
     subtitle: "Research and Publication Project",
     category: "Valuation",
     summary:
-      "Co-authored published research on financial literacy and decision-making with quantitative modeling applications.",
+      "Co-authored a published quantitative finance paper linking probability modeling with financial literacy and decision behavior analysis.",
     whyItMatters:
-      "Signals research rigor, technical writing quality, and ability to connect statistical frameworks with financial behavior analysis.",
+      "Demonstrates publication-grade research rigor, quantitative reasoning, and technical writing strength relevant to finance and investment analysis roles.",
     tools: ["Research Design", "Quantitative Analysis", "Academic Writing"],
     highlights: [
       "Published in IJARESM (Vol. 12, No. 11).",
       "Connected mathematical modeling concepts to applied finance decision contexts.",
       "Presented research findings in conference settings.",
     ],
+    projectUrl:
+      "https://www.ijaresm.com/uploaded_files/document_file/Shourya_Shrivastava7zCX.pdf",
+    projectLinkLabel: "Read Full Paper",
+    projectLinkNote: "Full Research Publication",
     source: "resume+linkedin",
   },
 ];

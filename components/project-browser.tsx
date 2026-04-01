@@ -8,17 +8,13 @@ type Props = {
   projects: ProjectItem[];
 };
 
-const categories = [
-  "All",
-  "Finance Modeling",
-  "Valuation",
-  "Business Analytics",
-  "Research",
-  "Markets",
-] as const;
-
 export function ProjectBrowser({ projects }: Props) {
-  const [selected, setSelected] = useState<(typeof categories)[number]>("All");
+  const categories = useMemo(() => {
+    const distinct = Array.from(new Set(projects.map((item) => item.category)));
+    return ["All", ...distinct];
+  }, [projects]);
+
+  const [selected, setSelected] = useState<string>("All");
 
   const filtered = useMemo(() => {
     if (selected === "All") return projects;
