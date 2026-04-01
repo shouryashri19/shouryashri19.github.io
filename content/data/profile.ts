@@ -174,23 +174,6 @@ export const projects: ProjectItem[] = [
     source: "resume+linkedin",
   },
   {
-    slug: "finance-performance-tracking-framework-rutgers",
-    title: "Finance Performance Tracking Framework",
-    subtitle: "Rutgers Teaching Assistantship Analytics Workflow",
-    category: "Business Analytics",
-    summary:
-      "Designed structured tracking and grading support workflows for quantitative finance courses across MBA and undergraduate cohorts.",
-    whyItMatters:
-      "Demonstrates process discipline, data integrity control, and cross-functional execution in high-volume finance-oriented academic operations.",
-    tools: ["Excel", "Data Validation", "Reporting Workflows", "Process Design"],
-    highlights: [
-      "Managed tracking quality for 106 students across multiple finance courses and sections.",
-      "Built repeatable evaluation templates to improve consistency in case-based and quantitative assessment reporting.",
-      "Coordinated with faculty to resolve data discrepancies before grading and reporting deadlines.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
     slug: "hypergeometric-distribution-financial-modelling",
     title: "Hypergeometric Distribution Application in Financial Modelling",
     subtitle: "Research and Publication Project",
@@ -209,23 +192,6 @@ export const projects: ProjectItem[] = [
       "https://www.ijaresm.com/uploaded_files/document_file/Shourya_Shrivastava7zCX.pdf",
     projectUrlLabel: "Read Full Paper",
     projectUrlNote: "Full Research Publication",
-    source: "resume+linkedin",
-  },
-  {
-    slug: "placement-strategy-and-recruiter-operations",
-    title: "Placement Strategy and Recruiter Operations",
-    subtitle: "Leadership Execution Program - Kamala Nehru College",
-    category: "Research",
-    summary:
-      "Led structured recruiter outreach, sponsorship planning, and student placement operations through a metrics-driven leadership model.",
-    whyItMatters:
-      "Highlights commercial communication, execution ownership, and stakeholder coordination relevant to client-facing finance careers.",
-    tools: ["Outreach Strategy", "Pipeline Management", "Stakeholder Communication", "Team Leadership"],
-    highlights: [
-      "Led a 30+ member team while improving placement outcomes by 35%.",
-      "Increased recruiter engagement by 50% through organized outreach and follow-through cadence.",
-      "Secured INR 75K in sponsorship support while managing execution timelines.",
-    ],
     source: "resume+linkedin",
   },
 ];
