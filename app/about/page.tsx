@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/card";
 import {
-  editablePlaceholders,
+  featuredWork,
   linkedInHighlights,
   mediumArticles,
   mediumProfile,
@@ -27,12 +27,8 @@ export default function AboutPage() {
 
       <Card className="space-y-4">
         <p className="leading-7 text-slate">{profile.summary}</p>
-        <p className="leading-7 text-slate">
-          Across academic and internship roles, I have worked on pricing analysis, variance reporting, data workflows, and cross-functional collaboration. I am building toward high-responsibility finance roles where valuation rigor, decision clarity, and reliable execution are essential.
-        </p>
-        <p className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-          Editable placeholder: {editablePlaceholders.bioPersonal}
-        </p>
+        <p className="leading-7 text-slate">{profile.shortIntro}</p>
+        <p className="leading-7 text-slate">{profile.longTermGoal}</p>
       </Card>
 
       <section className="grid gap-6 md:grid-cols-2">
@@ -58,26 +54,44 @@ export default function AboutPage() {
       <section className="grid gap-6 md:grid-cols-2">
         <Card className="space-y-4">
           <h2 className="font-heading text-2xl text-ink">LinkedIn as Profile Hub</h2>
+          <p className="rounded-md border border-slate-200 bg-slate-50 p-3 text-sm font-semibold text-slate dark:border-slate-700 dark:bg-slate-800/40 dark:text-slate-200">
+            {linkedInHighlights.headline}
+          </p>
           <p className="text-sm text-slate">{linkedInHighlights.note}</p>
           <ul className="space-y-2 text-slate">
-            {linkedInHighlights.manualSyncPlaceholders.map((item) => (
+            {linkedInHighlights.verifiedFromResumeAndVisibleProfile.map((item) => (
               <li key={item}>- {item}</li>
             ))}
           </ul>
+          <div className="space-y-2">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-steel">Featured Work & Project Documentation</p>
+            <p className="text-sm text-slate">(Add links as available)</p>
+            <ul className="space-y-2 text-slate">
+              {featuredWork.map((item) => (
+                <li key={item.title}>
+                  {item.url ? (
+                    <Link href={item.url} target="_blank" rel="noreferrer" className="font-medium text-navy hover:text-ink">
+                      {item.title}
+                    </Link>
+                  ) : (
+                    <span>{item.title}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="flex flex-wrap gap-3">
             <Link href={siteConfig.linkedIn} target="_blank" rel="noreferrer" className="text-sm font-semibold text-navy hover:text-ink">
               Open LinkedIn
             </Link>
           </div>
-          <p className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-            Editable placeholder: {editablePlaceholders.linkedinFeaturedLinks}
-          </p>
         </Card>
 
         <Card className="space-y-4">
-          <h2 className="font-heading text-2xl text-ink">Writing Identity (Medium)</h2>
-          <p className="text-sm text-slate">{mediumProfile.bio}</p>
-          <p className="text-sm text-slate">{mediumProfile.followersText}</p>
+          <h2 className="font-heading text-2xl text-ink">Writing & Thought Leadership</h2>
+          <p className="text-sm text-slate">{mediumProfile.writingIdentity}</p>
+          <p className="text-sm text-slate">{mediumProfile.writingIdentityDetail}</p>
+          <p className="text-sm text-slate">{mediumProfile.writingIdentityPublishing}</p>
           <ul className="space-y-2 text-slate">
             {mediumArticles.map((article) => (
               <li key={article.url}>

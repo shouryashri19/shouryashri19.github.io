@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { BlogExplorer } from "@/components/blog-explorer";
 import { CtaButton } from "@/components/cta-button";
 import { ArticleCard } from "@/components/article-card";
-import { editablePlaceholders, mediumArticles, mediumProfile } from "@/content/data/profile";
+import { mediumArticles, mediumProfile } from "@/content/data/profile";
 import { getAllPosts, getTags } from "@/lib/blog";
 import { siteConfig } from "@/lib/site-config";
 
@@ -28,9 +28,10 @@ export default function BlogPage() {
       <section className="section-panel p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-2">
-            <h2 className="font-heading text-2xl text-ink">Featured Writing and Publications</h2>
-            <p className="max-w-3xl text-sm text-slate">{mediumProfile.bio}</p>
-            <p className="text-xs text-slate-500">{mediumProfile.followersText}</p>
+            <h2 className="font-heading text-2xl text-ink">Writing & Thought Leadership</h2>
+            <p className="max-w-3xl text-sm text-slate">{mediumProfile.writingIdentity}</p>
+            <p className="max-w-3xl text-sm text-slate">{mediumProfile.writingIdentityDetail}</p>
+            <p className="text-xs text-slate-500">{mediumProfile.writingIdentityPublishing}</p>
           </div>
           <div className="flex gap-3">
             <CtaButton href={siteConfig.medium} variant="secondary">
@@ -48,9 +49,6 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <p className="mt-4 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-          Editable placeholder: {editablePlaceholders.mediumAdditionalArticles}
-        </p>
         <p className="mt-3 text-sm text-slate">
           Full Medium profile: <Link href={siteConfig.medium} className="font-semibold text-navy hover:text-ink" target="_blank" rel="noreferrer">{siteConfig.medium}</Link>
         </p>

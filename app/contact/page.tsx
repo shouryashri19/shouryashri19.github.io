@@ -2,7 +2,7 @@
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/card";
 import { CtaButton } from "@/components/cta-button";
-import { editablePlaceholders, mediumProfile } from "@/content/data/profile";
+import { linkedInHighlights, mediumProfile } from "@/content/data/profile";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -40,14 +40,14 @@ export default function ContactPage() {
               Download Resume
             </CtaButton>
           </div>
-          <p className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-            LinkedIn sync placeholder: {editablePlaceholders.linkedinHeadline}
+          <p className="rounded-md border border-slate-200 bg-slate-50 p-3 text-sm font-semibold text-slate dark:border-slate-700 dark:bg-slate-800/40 dark:text-slate-200">
+            {linkedInHighlights.headline}
           </p>
           <p className="text-xs text-slate-500">Medium note: {mediumProfile.followersText}</p>
         </Card>
 
         <Card className="space-y-4">
-          <h2 className="font-heading text-2xl text-ink">Contact Form (Deploy-Ready Placeholder)</h2>
+          <h2 className="font-heading text-2xl text-ink">Contact Form</h2>
           <p className="text-slate">
             Integrate this with Formspree, Resend + serverless function, or your preferred backend provider.
           </p>

@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { CertificationCard } from "@/components/certification-card";
-import { certifications, editablePlaceholders, topCertifications } from "@/content/data/profile";
+import { certificationCredentialRoadmap, certifications, topCertifications } from "@/content/data/profile";
 
 export const metadata: Metadata = {
   title: "Certifications",
@@ -35,9 +35,15 @@ export default function CertificationsPage() {
         </div>
       </section>
 
-      <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-        Editable placeholder: {editablePlaceholders.certificationCredentials}
-      </div>
+      <section className="section-panel space-y-4 p-5">
+        <h2 className="font-heading text-2xl text-ink">Certifications & Credentials</h2>
+        <p className="text-sm text-slate">Verification links can be added progressively.</p>
+        <ul className="space-y-2 text-slate">
+          {certificationCredentialRoadmap.map((item) => (
+            <li key={item}>- {item}</li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

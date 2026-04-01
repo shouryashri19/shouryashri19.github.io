@@ -48,14 +48,21 @@ export type ExternalArticle = {
   tags: string[];
 };
 
+export type FeaturedWorkItem = {
+  title: string;
+  url?: string;
+};
+
 export const profile = {
   name: "Shourya Shrivastava",
   headline:
-    "Master of Financial Analysis candidate focused on investment banking, valuation, and business-driven financial analysis.",
+    "Master's in Financial Analysis Candidate | Financial Modelling | FP&A | Valuation | Investment Banking & Private Equity Aspirant",
   shortIntro:
-    "I am a finance graduate student at Rutgers Business School with hands-on experience in pricing analysis, reporting workflows, and data-backed decision support. I combine quantitative rigor with structured communication to support stakeholder decisions in fast-paced environments.",
+    "I chose finance because I am drawn to understanding how capital allocation, valuation, and strategic decision-making shape real business outcomes. Through my academic training and hands-on experience in financial modeling, forecasting, and analysis, I have developed a strong foundation in translating complex data into actionable insights.",
   summary:
     "Data-driven analyst with a Master of Financial Analysis and experience in pricing analytics, business operations support, CRM and ERP data workflows, and cross-functional reporting. Proficient in Excel, SQL, R, Tableau, and Oracle NetSuite, with a strong focus on valuation discipline and market-aware financial reasoning.",
+  longTermGoal:
+    "My long-term goal is to build a career in investment banking and private equity, where I can work on high-impact transactions, develop deep expertise in valuation and deal execution, and contribute to strategic decision-making at scale.",
   values: [
     "Analytical discipline",
     "Structured communication",
@@ -247,25 +254,41 @@ export const leadership = [
 
 export const linkedInHighlights = {
   profileUrl: "https://www.linkedin.com/in/shourya-shrivastava-394035257/",
+  headline:
+    "Master's in Financial Analysis Candidate | Financial Modelling | FP&A | Valuation | Investment Banking & Private Equity Aspirant",
   note:
-    "LinkedIn is integrated as a primary profile hub. Direct automated extraction can be rate-limited by LinkedIn, so this section is intentionally structured for quick manual sync.",
+    "LinkedIn is integrated as a core profile channel for experience, projects, leadership, and certification alignment.",
   verifiedFromResumeAndVisibleProfile: [
     "Master of Financial Analysis candidate at Rutgers Business School.",
     "Experience in pricing analysis, reporting workflows, and stakeholder communication.",
     "Active focus on finance, economics, and business-oriented research writing.",
   ],
-  manualSyncPlaceholders: [
-    "Add LinkedIn headline exactly as displayed.",
-    "Add featured links (project decks, certificates, publications) from your LinkedIn Featured section.",
-    "Add volunteer or organization entries visible on LinkedIn if you want them shown publicly.",
-  ],
 };
+
+export const featuredWork: FeaturedWorkItem[] = [
+  {
+    title: "Financial Modelling & Valuation - Procter & Gamble Health & Hygiene India",
+  },
+  {
+    title: "Hypergeometric Distribution Research Publication",
+    url: "https://www.ijaresm.com/uploaded_files/document_file/Shourya_Shrivastava7zCX.pdf",
+  },
+  {
+    title: "Financial Forecasting & Variance Analysis Dashboards (Yes Bank Internship)",
+  },
+];
 
 export const mediumProfile = {
   profileUrl: "https://medium.com/@shouryashri19",
   bio:
     "Finance grad student at Rutgers Business School. Research in finance, economics, and sustainable business. Writing to share insights and maintain a disciplined writing practice.",
   followersText: "4 followers (publicly visible at time of integration)",
+  writingIdentity:
+    "I regularly write about finance, business analysis, and professional development, focusing on practical insights from financial modeling, market analysis, and career progression in high finance.",
+  writingIdentityDetail:
+    "Featured articles are available on Medium, with additional long-form writing and reflections added over time.",
+  writingIdentityPublishing:
+    "Add Medium links dynamically as new articles are published.",
 };
 
 export const mediumArticles: ExternalArticle[] = [
@@ -336,14 +359,14 @@ export const certifications: CertificationItem[] = [
     source: "resume+linkedin",
   },
   {
-    name: "Introduction to Strategy Consulting Job Simulation",
+    name: "BCG Strategy Consulting Simulation",
     issuer: "BCG Forage",
     date: "2024",
     relevance: "core",
     source: "resume+linkedin",
   },
   {
-    name: "Management Consulting Virtual Experience Program",
+    name: "PwC Consulting Experience Program",
     issuer: "PwC Forage",
     date: "2023",
     relevance: "core",
@@ -376,21 +399,18 @@ export const topCertifications = certifications.filter(
   (item) => item.relevance === "high" || item.relevance === "core",
 );
 
+export const certificationCredentialRoadmap = [
+  "Bloomberg Market Concepts (2026)",
+  "Bloomberg Spreadsheet Analysis (2026)",
+  "J.P. Morgan Investment Banking Simulation (Forage, 2025)",
+  "BCG Strategy Consulting Simulation (Forage, 2024)",
+  "PwC Consulting Experience Program (Forage, 2023)",
+  "Google Data Analytics Specialization (Coursera, 2023)",
+  "Data Analysis with R Programming (Coursera, 2023)",
+];
+
 export const additionalHighlights = [
   "Selected from 50,000+ global applicants and won the Impact Challenge at Harvard Project for Asia and International Relations 2025.",
   "City Head, Project Green and Garbage (2023-2024).",
   "Represented Delhi at Miss Teen Diva 2024; placed Top 8 nationally in India with Miss Congeniality and Miss Vivacious subtitles.",
 ];
-
-export const editablePlaceholders = {
-  linkedinHeadline: "Add exact LinkedIn headline here after each profile update.",
-  linkedinFeaturedLinks:
-    "Add verified LinkedIn Featured URLs (project decks, case studies, credentials) once available publicly.",
-  mediumAdditionalArticles:
-    "Add additional Medium article URLs and summaries as you publish more writing.",
-  certificationCredentials:
-    "Add credential URLs for each certificate when you want clickable verification.",
-  bioPersonal:
-    "Add a 2-3 sentence personal narrative on why you chose finance and your long-term goal in investment banking/private equity.",
-  testimonials: "Add quotes from supervisors, professors, or team leads.",
-};

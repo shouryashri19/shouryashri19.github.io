@@ -32,6 +32,7 @@ export default function HomePage() {
           <h1 className="font-heading text-4xl leading-tight text-ink md:text-6xl">{profile.name}</h1>
           <p className="max-w-3xl text-xl text-slate md:text-2xl">{profile.headline}</p>
           <p className="max-w-3xl text-base leading-7 text-slate md:text-lg">{profile.shortIntro}</p>
+          <p className="max-w-3xl text-base leading-7 text-slate md:text-lg">{profile.longTermGoal}</p>
           <div className="flex flex-wrap gap-3">
             <CtaButton href="/resume">Explore Experience</CtaButton>
             <CtaButton href="/projects" variant="secondary">
