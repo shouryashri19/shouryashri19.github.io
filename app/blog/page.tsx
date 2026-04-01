@@ -25,7 +25,7 @@ export default function BlogPage() {
         description="A professional writing hub combining on-site long-form articles with real Medium publishing activity."
       />
 
-      <section className="rounded-lg border border-slate-200 bg-white p-6">
+      <section className="section-panel p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-2">
             <h2 className="font-heading text-2xl text-ink">Featured Writing and Publications</h2>

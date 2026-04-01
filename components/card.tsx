@@ -7,9 +7,5 @@ type Props = {
 };
 
 export function Card({ children, className }: Props) {
-  return (
-    <article className={clsx("rounded-lg border border-slate-200 bg-white p-6 shadow-card", className)}>
-      {children}
-    </article>
-  );
+  return <article className={clsx("section-panel p-6", className)}>{children}</article>;
 }

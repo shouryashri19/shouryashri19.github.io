@@ -26,7 +26,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16 py-12 md:py-16">
-      <section className="grid gap-10 md:grid-cols-[1.35fr_1fr] md:items-end">
+      <section className="hero-sheen grid gap-10 rounded-xl border border-slate-200/80 p-8 md:grid-cols-[1.35fr_1fr] md:items-end dark:border-slate-700">
         <div className="space-y-6">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-steel">Professional Portfolio</p>
           <h1 className="font-heading text-4xl leading-tight text-ink md:text-6xl">{profile.name}</h1>
@@ -127,7 +127,7 @@ export default function HomePage() {
           </Link>
         </Card>
 
-        <section className="space-y-4 rounded-lg border border-slate-200 bg-white p-7 shadow-card">
+        <section className="section-panel space-y-4 p-7">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">Distinctions</p>
           <h2 className="font-heading text-3xl text-ink">Selected Highlights</h2>
           <ul className="space-y-2 text-slate">

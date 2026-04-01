@@ -14,7 +14,7 @@ export function ArticleCard({ article }: { article: ExternalArticle }) {
 
       <div className="flex flex-wrap gap-2">
         {article.tags.map((tag) => (
-          <span key={tag} className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">
+          <span key={tag} className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-700/60 dark:text-slate-100">
             {tag}
           </span>
         ))}

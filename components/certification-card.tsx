@@ -15,7 +15,7 @@ export function CertificationCard({ certification }: { certification: Certificat
       </p>
 
       <div className="flex items-center justify-between text-xs">
-        <span className="rounded bg-slate-100 px-2 py-1 font-semibold uppercase tracking-wider text-slate-700">
+        <span className="rounded bg-slate-100 px-2 py-1 font-semibold uppercase tracking-wider text-slate-700 dark:bg-slate-700/60 dark:text-slate-100">
           {certification.relevance}
         </span>
         <span className="text-slate-500">Source: {certification.source}</span>

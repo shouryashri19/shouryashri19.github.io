@@ -15,7 +15,11 @@ export function BlogCard({ post }: { post: BlogPost }) {
         <p className="text-sm text-slate">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
-            <Link key={tag} href={`/blog/tags/${encodeURIComponent(tag.toLowerCase())}`} className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-200">
+            <Link
+              key={tag}
+              href={`/blog/tags/${encodeURIComponent(tag.toLowerCase())}`}
+              className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-200 dark:bg-slate-700/60 dark:text-slate-100 dark:hover:bg-slate-700"
+            >
               {tag}
             </Link>
           ))}

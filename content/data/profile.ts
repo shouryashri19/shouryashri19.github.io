@@ -15,6 +15,7 @@ export type ProjectCategory =
   | "Markets";
 
 export type ProjectItem = {
+  slug: string;
   title: string;
   subtitle: string;
   category: ProjectCategory;
@@ -23,6 +24,8 @@ export type ProjectItem = {
   tools: string[];
   highlights: string[];
   projectUrl?: string;
+  projectUrlLabel?: string;
+  projectUrlNote?: string;
   source: "resume" | "linkedin" | "resume+linkedin";
 };
 
@@ -142,6 +145,7 @@ export const experiences: ExperienceItem[] = [
 
 export const projects: ProjectItem[] = [
   {
+    slug: "procter-and-gamble-health-and-hygiene-india",
     title: "Procter and Gamble Health and Hygiene India",
     subtitle: "Financial Modeling and Valuation Report",
     category: "Finance Modeling",
@@ -158,54 +162,24 @@ export const projects: ProjectItem[] = [
     source: "resume+linkedin",
   },
   {
-    title: "Pricing Analytics Dashboard Suite",
-    subtitle: "Yes Bank Internship Project",
+    slug: "finance-performance-tracking-framework-rutgers",
+    title: "Finance Performance Tracking Framework",
+    subtitle: "Rutgers Teaching Assistantship Analytics Workflow",
     category: "Business Analytics",
     summary:
-      "Built dashboards and variance-analysis views for budget-versus-actual tracking across multiple business segments.",
+      "Designed structured tracking and grading support workflows for quantitative finance courses across MBA and undergraduate cohorts.",
     whyItMatters:
-      "Shows ability to convert large raw datasets into management-ready views for pricing and operating decisions.",
-    tools: ["Excel", "R", "Variance Analysis", "Data Validation"],
+      "Demonstrates process discipline, data integrity control, and cross-functional execution in high-volume finance-oriented academic operations.",
+    tools: ["Excel", "Data Validation", "Reporting Workflows", "Process Design"],
     highlights: [
-      "Managed and organized 5,000+ data points spanning 10+ segments.",
-      "Developed reporting outputs used for cross-functional pricing discussions.",
-      "Supported requirement gathering to keep analysis aligned with operational workflows.",
+      "Managed tracking quality for 106 students across multiple finance courses and sections.",
+      "Built repeatable evaluation templates to improve consistency in case-based and quantitative assessment reporting.",
+      "Coordinated with faculty to resolve data discrepancies before grading and reporting deadlines.",
     ],
     source: "resume+linkedin",
   },
   {
-    title: "ERP Reporting and Cost Optimization Analysis",
-    subtitle: "UFlex Research Internship",
-    category: "Research",
-    summary:
-      "Used Oracle NetSuite workflows and reporting to evaluate budget-to-actual performance and identify optimization opportunities.",
-    whyItMatters:
-      "Highlights operational finance analysis with measurable impact and systems-level execution discipline.",
-    tools: ["Oracle NetSuite", "Budget vs Actual", "UAT", "Reporting"],
-    highlights: [
-      "Identified INR 2M in cost optimization opportunities through structured analysis.",
-      "Supported UAT of reporting templates to improve output reliability.",
-      "Maintained high data integrity standards across finance workflows.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
-    title: "Revenue and Pricing Trend Intelligence",
-    subtitle: "MedTourEasy Analytics Traineeship",
-    category: "Markets",
-    summary:
-      "Analyzed operational and revenue trend data to support pricing intelligence and business decision-making.",
-    whyItMatters:
-      "Demonstrates practical use of analytics tools to support commercial and finance decisions in real project settings.",
-    tools: ["SQL", "R", "Tableau", "Power BI"],
-    highlights: [
-      "Built visual analytics outputs for revenue and pricing trend interpretation.",
-      "Presented findings in a stakeholder-friendly format under tight deadlines.",
-      "Resolved data-quality issues to improve signal reliability.",
-    ],
-    source: "resume+linkedin",
-  },
-  {
+    slug: "hypergeometric-distribution-financial-modelling",
     title: "Hypergeometric Distribution Application in Financial Modelling",
     subtitle: "Research and Publication Project",
     category: "Valuation",
@@ -218,6 +192,27 @@ export const projects: ProjectItem[] = [
       "Published in IJARESM (Vol. 12, No. 11).",
       "Connected mathematical modeling concepts to applied finance decision contexts.",
       "Presented research findings in conference settings.",
+    ],
+    projectUrl:
+      "https://www.ijaresm.com/uploaded_files/document_file/Shourya_Shrivastava7zCX.pdf",
+    projectUrlLabel: "Read Full Paper",
+    projectUrlNote: "Full Research Publication",
+    source: "resume+linkedin",
+  },
+  {
+    slug: "placement-strategy-and-recruiter-operations",
+    title: "Placement Strategy and Recruiter Operations",
+    subtitle: "Leadership Execution Program - Kamala Nehru College",
+    category: "Research",
+    summary:
+      "Led structured recruiter outreach, sponsorship planning, and student placement operations through a metrics-driven leadership model.",
+    whyItMatters:
+      "Highlights commercial communication, execution ownership, and stakeholder coordination relevant to client-facing finance careers.",
+    tools: ["Outreach Strategy", "Pipeline Management", "Stakeholder Communication", "Team Leadership"],
+    highlights: [
+      "Led a 30+ member team while improving placement outcomes by 35%.",
+      "Increased recruiter engagement by 50% through organized outreach and follow-through cadence.",
+      "Secured INR 75K in sponsorship support while managing execution timelines.",
     ],
     source: "resume+linkedin",
   },

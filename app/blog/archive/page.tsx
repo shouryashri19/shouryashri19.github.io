@@ -27,7 +27,7 @@ export default function BlogArchivePage() {
 
       <div className="space-y-8">
         {Object.entries(groups).map(([month, monthPosts]) => (
-          <section key={month} className="rounded-lg border border-slate-200 bg-white p-6">
+          <section key={month} className="section-panel p-6">
             <h2 className="font-heading text-2xl text-ink">{month}</h2>
             <ul className="mt-3 space-y-2">
               {monthPosts.map((post) => (

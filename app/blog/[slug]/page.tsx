@@ -40,7 +40,7 @@ export default async function BlogPostPage({
 
   return (
     <article className="py-12 md:py-16">
-      <header className="space-y-4 border-b border-slate-200 pb-8">
+      <header className="space-y-4 border-b border-slate-200 pb-8 dark:border-slate-700">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">{new Date(post.date).toLocaleDateString()}</p>
         <h1 className="font-heading max-w-4xl text-4xl leading-tight text-ink">{post.title}</h1>
         <p className="max-w-3xl text-lg text-slate">{post.excerpt}</p>

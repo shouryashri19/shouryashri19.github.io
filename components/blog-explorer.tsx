@@ -32,11 +32,11 @@ export function BlogExplorer({ posts, tags }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 md:grid-cols-[1fr_auto] md:items-center">
+      <div className="section-panel grid gap-4 p-4 md:grid-cols-[1fr_auto] md:items-center">
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm"
+          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-navy dark:border-slate-600 dark:bg-slate-800/30 dark:text-slate-100 dark:focus:border-steel"
           placeholder="Search by title, topic, or keyword"
           aria-label="Search blog posts"
         />
@@ -48,7 +48,9 @@ export function BlogExplorer({ posts, tags }: Props) {
           type="button"
           onClick={() => setSelectedTag("all")}
           className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
-            selectedTag === "all" ? "border-navy bg-navy text-white" : "border-slate-300 bg-white text-slate"
+            selectedTag === "all"
+              ? "border-navy bg-navy text-white"
+              : "border-slate-300 bg-white text-slate dark:border-slate-600 dark:bg-slate-800/30 dark:text-slate-100"
           }`}
         >
           All
@@ -61,7 +63,7 @@ export function BlogExplorer({ posts, tags }: Props) {
             className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
               selectedTag === tag.toLowerCase()
                 ? "border-navy bg-navy text-white"
-                : "border-slate-300 bg-white text-slate"
+                : "border-slate-300 bg-white text-slate dark:border-slate-600 dark:bg-slate-800/30 dark:text-slate-100"
             }`}
           >
             {tag}
@@ -76,7 +78,7 @@ export function BlogExplorer({ posts, tags }: Props) {
       </section>
 
       {filtered.length === 0 ? (
-        <div className="rounded-md border border-slate-200 bg-white p-6 text-sm text-slate">
+        <div className="section-panel p-6 text-sm text-slate">
           No posts match the current filters. Try a broader keyword.
         </div>
       ) : null}
