@@ -171,7 +171,7 @@ export const projects: ProjectItem[] = [
       "Applied DCF valuation and sensitivity analysis to stress test assumptions.",
       "Converted model outputs into product-level commercial recommendations for stakeholders.",
     ],
-    projectUrl: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    projectUrl: "https://drive.google.com/file/d/1M3d0Cdp9VunXrP9PMtWCeNaUIg46jHeb/view?usp=sharing",
     projectUrlLabel: "View Project Folder",
     projectUrlNote: "Financial Model and Supporting Files",
     source: "resume+linkedin",
@@ -191,7 +191,7 @@ export const projects: ProjectItem[] = [
       "Used multiple linear regression to evaluate driver sensitivity and explanatory significance.",
       "Documented model outputs and interpretation in a structured project folder.",
     ],
-    projectUrl: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    projectUrl: "https://drive.google.com/file/d/1-vxHYFDfVp8TXnIPbxBTfdZ8KFVIdbPV/view?usp=sharing",
     projectUrlLabel: "View Project Folder",
     projectUrlNote: "Project Files and Analysis Outputs",
     source: "linkedin",
@@ -262,7 +262,7 @@ export const linkedInHighlights = {
 export const featuredWork: FeaturedWorkItem[] = [
   {
     title: "Financial Modelling & Valuation - Procter & Gamble Health & Hygiene India",
-    url: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    url: "https://drive.google.com/file/d/1M3d0Cdp9VunXrP9PMtWCeNaUIg46jHeb/view?usp=sharing",
   },
   {
     title: "Hypergeometric Distribution Research Publication",
@@ -270,7 +270,7 @@ export const featuredWork: FeaturedWorkItem[] = [
   },
   {
     title: "Multiple Linear Regression Analysis on Retail Sales of Electricity (2014-2024)",
-    url: "https://drive.google.com/drive/u/0/folders/1IpM8QxZypMz6yZYmm_1ml_U7vc-azG9t",
+    url: "https://drive.google.com/file/d/1-vxHYFDfVp8TXnIPbxBTfdZ8KFVIdbPV/view?usp=sharing",
   },
   {
     title: "Financial Forecasting & Variance Analysis Dashboards (Yes Bank Internship)",
