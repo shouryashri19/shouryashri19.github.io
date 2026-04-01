@@ -21,65 +21,73 @@ export const metadata: Metadata = {
   title: "Home",
 };
 
-const dashboardItems = [
-  { label: "Focus", value: "IB and Strategic Finance", note: "Career direction" },
-  { label: "Experience", value: `${experiences.length} Roles`, note: "Academic and industry" },
-  { label: "Projects", value: `${projects.length}`, note: "Portfolio entries" },
-  { label: "Certifications", value: `${topCertifications.length}`, note: "Core credentials" },
-];
-
 export default function HomePage() {
   const featuredPosts = getFeaturedPosts(3);
 
   return (
     <div className="space-y-16 py-12 md:py-16">
-      <section className="grid gap-6 md:grid-cols-[1.35fr_1fr]">
-        <div className="section-panel p-8 md:p-10">
-          <div className="space-y-6">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Profile</p>
-            <h1 className="font-heading text-[40px] leading-tight tracking-tight text-ink dark:text-slate-100 md:text-[48px]">
-              {profile.name}
-            </h1>
-            <p className="text-[22px] leading-[1.35] text-slate dark:text-slate-300">{profile.headline}</p>
-            <p className="max-w-3xl text-[16px] leading-[1.7] text-slate dark:text-slate-300">{profile.shortIntro}</p>
-            <div className="flex flex-wrap gap-3">
-              <CtaButton href={siteConfig.resumePath}>View Resume</CtaButton>
-              <CtaButton href="/projects" variant="secondary">
-                View Projects
-              </CtaButton>
-              <CtaButton href="/contact" variant="secondary">
-                Contact
-              </CtaButton>
-            </div>
+      <section className="grid gap-10 md:grid-cols-[1.35fr_1fr] md:items-end">
+        <div className="space-y-6">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-steel">Professional Portfolio</p>
+          <h1 className="font-heading text-4xl leading-tight text-ink md:text-6xl">{profile.name}</h1>
+          <p className="max-w-3xl text-xl text-slate md:text-2xl">{profile.headline}</p>
+          <p className="max-w-3xl text-base leading-7 text-slate md:text-lg">{profile.shortIntro}</p>
+          <div className="flex flex-wrap gap-3">
+            <CtaButton href="/resume">Explore Experience</CtaButton>
+            <CtaButton href="/projects" variant="secondary">
+              View Projects
+            </CtaButton>
+            <CtaButton href={siteConfig.linkedIn} variant="secondary">
+              LinkedIn Profile
+            </CtaButton>
+            <CtaButton href={siteConfig.medium} variant="secondary">
+              Read on Medium
+            </CtaButton>
+            <CtaButton href="/contact" variant="ghost">
+              Contact Me
+            </CtaButton>
           </div>
         </div>
 
-        <Card className="space-y-4">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Core Strengths</p>
-          <ul className="space-y-3 text-[16px] leading-[1.65] text-slate dark:text-slate-300">
-            <li>- Valuation and financial modeling discipline</li>
-            <li>- Market-aware analytical communication</li>
-            <li>- Cross-functional reporting and data integrity</li>
-            <li>- Professional writing and research orientation</li>
+        <Card>
+          <h2 className="font-heading text-xl text-ink">Core Focus Areas</h2>
+          <ul className="mt-4 space-y-2 text-sm text-slate">
+            <li>Investment Banking and Corporate Finance Recruiting</li>
+            <li>Valuation, Financial Modeling, and Market Analysis</li>
+            <li>Data-Driven Decision Support and Business Operations</li>
+            <li>Professional Writing, Research, and Stakeholder Communication</li>
           </ul>
         </Card>
       </section>
 
-      <section className="metric-strip grid gap-4 p-4 md:grid-cols-4">
-        {dashboardItems.map((item) => (
-          <div key={item.label} className="rounded-[10px] border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-carbon">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">{item.label}</p>
-            <p className="mt-1 font-heading text-[24px] leading-tight text-ink dark:text-slate-100">{item.value}</p>
-            <p className="text-[13px] text-slate-500 dark:text-slate-400">{item.note}</p>
-          </div>
-        ))}
+      <section className="grid gap-6 md:grid-cols-4">
+        <Card>
+          <p className="text-xs font-bold uppercase tracking-wider text-steel">Experience</p>
+          <p className="mt-2 font-heading text-3xl text-ink">{experiences.length} Roles</p>
+          <p className="mt-2 text-sm text-slate">Academic and industry experience across research and analytics.</p>
+        </Card>
+        <Card>
+          <p className="text-xs font-bold uppercase tracking-wider text-steel">Projects</p>
+          <p className="mt-2 font-heading text-3xl text-ink">{projects.length} Projects</p>
+          <p className="mt-2 text-sm text-slate">Portfolio-ready finance, valuation, and analytics work.</p>
+        </Card>
+        <Card>
+          <p className="text-xs font-bold uppercase tracking-wider text-steel">Certifications</p>
+          <p className="mt-2 font-heading text-3xl text-ink">{topCertifications.length} Core</p>
+          <p className="mt-2 text-sm text-slate">Role-relevant proof points for markets and analytics readiness.</p>
+        </Card>
+        <Card>
+          <p className="text-xs font-bold uppercase tracking-wider text-steel">Skills</p>
+          <p className="mt-2 font-heading text-3xl text-ink">{skills.technical.length + skills.finance.length}+</p>
+          <p className="mt-2 text-sm text-slate">Tools and capabilities aligned to finance-intensive roles.</p>
+        </Card>
       </section>
 
       <section className="space-y-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Writing</p>
-            <h2 className="font-heading text-[30px] tracking-tight text-ink dark:text-slate-100 md:text-[32px]">Featured Articles</h2>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">Thought Leadership</p>
+            <h2 className="font-heading text-3xl text-ink">Featured Writing</h2>
           </div>
           <div className="flex gap-3">
             <CtaButton href="/blog" variant="ghost">
@@ -106,45 +114,28 @@ export default function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <Card className="space-y-3">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">LinkedIn</p>
-          <h2 className="font-heading text-[24px] tracking-tight text-ink dark:text-slate-100">Professional Highlights</h2>
-          <ul className="space-y-2 text-[16px] leading-[1.65] text-slate dark:text-slate-300">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">LinkedIn Integration</p>
+          <h2 className="font-heading text-2xl text-ink">LinkedIn Highlights</h2>
+          <p className="text-sm text-slate">{linkedInHighlights.note}</p>
+          <ul className="space-y-2 text-slate">
             {linkedInHighlights.verifiedFromResumeAndVisibleProfile.map((item) => (
               <li key={item}>- {item}</li>
             ))}
           </ul>
-          <Link href={siteConfig.linkedIn} target="_blank" rel="noreferrer" className="text-[16px] font-medium text-navy hover:text-[#162c68] dark:text-steel dark:hover:text-slate-100">
+          <Link href={linkedInHighlights.profileUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-navy hover:text-ink">
             Open LinkedIn Profile
           </Link>
         </Card>
 
-        <Card className="space-y-3">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Achievements</p>
-          <h2 className="font-heading text-[24px] tracking-tight text-ink dark:text-slate-100">Selected Distinctions</h2>
-          <ul className="space-y-2 text-[16px] leading-[1.65] text-slate dark:text-slate-300">
+        <section className="space-y-4 rounded-lg border border-slate-200 bg-white p-7 shadow-card">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">Distinctions</p>
+          <h2 className="font-heading text-3xl text-ink">Selected Highlights</h2>
+          <ul className="space-y-2 text-slate">
             {additionalHighlights.map((item) => (
               <li key={item}>- {item}</li>
             ))}
           </ul>
-        </Card>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-3">
-        <Card>
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Experience</p>
-          <p className="mt-2 font-heading text-[24px] text-ink dark:text-slate-100">{experiences.length} Roles</p>
-          <p className="mt-2 text-[16px] leading-[1.65] text-slate dark:text-slate-300">Academic and internship experience in finance analysis and reporting.</p>
-        </Card>
-        <Card>
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Projects</p>
-          <p className="mt-2 font-heading text-[24px] text-ink dark:text-slate-100">{projects.length} Project Cases</p>
-          <p className="mt-2 text-[16px] leading-[1.65] text-slate dark:text-slate-300">Structured project evidence across valuation, analytics, and research.</p>
-        </Card>
-        <Card>
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Skills</p>
-          <p className="mt-2 font-heading text-[24px] text-ink dark:text-slate-100">{skills.technical.length + skills.finance.length}+</p>
-          <p className="mt-2 text-[16px] leading-[1.65] text-slate dark:text-slate-300">Tools and technical readiness for finance and consulting workflows.</p>
-        </Card>
+        </section>
       </section>
     </div>
   );
