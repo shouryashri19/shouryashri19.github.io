@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import { SectionHeading } from "@/components/section-heading";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -19,23 +20,22 @@ export default function BlogArchivePage() {
 
   return (
     <div className="space-y-8 py-12 md:py-16">
-      <header className="space-y-3">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">Blog</p>
-        <h1 className="font-heading text-4xl text-ink">Archive</h1>
-        <p className="text-slate">Chronological index of published writing.</p>
-      </header>
+      <SectionHeading label="Blog" title="Archive" description="Chronological index of published writing." />
 
       <div className="space-y-8">
         {Object.entries(groups).map(([month, monthPosts]) => (
-          <section key={month} className="rounded-lg border border-slate-200 bg-white p-6">
-            <h2 className="font-heading text-2xl text-ink">{month}</h2>
+          <section key={month} className="section-panel p-6">
+            <h2 className="font-heading text-2xl text-ink dark:text-slate-100">{month}</h2>
             <ul className="mt-3 space-y-2">
               {monthPosts.map((post) => (
                 <li key={post.slug} className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                  <Link href={`/blog/${post.slug}`} className="font-semibold text-navy hover:text-ink">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="font-semibold text-navy hover:text-ink dark:text-steel dark:hover:text-slate-100"
+                  >
                     {post.title}
                   </Link>
-                  <span className="text-sm text-slate">{new Date(post.date).toLocaleDateString()}</span>
+                  <span className="text-sm text-slate dark:text-slate-300">{new Date(post.date).toLocaleDateString()}</span>
                 </li>
               ))}
             </ul>

@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,54 +6,137 @@
 
 :root {
   color-scheme: light;
+  --bg: #f7f7f4;
+  --bg-soft: #eef2f7;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #425467;
+  --line: #d8e0ea;
+  --accent: #1d3557;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --bg-soft: #0f1a2d;
+  --panel: #101b30;
+  --text: #e5ecf5;
+  --muted: #9eb0c6;
+  --line: #24364f;
+  --accent: #8aa8cf;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-paper font-body text-ink antialiased;
+  background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--bg-soft) 60%, transparent) 0, transparent 48%),
+    var(--bg);
+  color: var(--text);
+  @apply font-body antialiased;
 }
 
 main {
   @apply mx-auto w-full max-w-6xl px-5;
 }
 
+/* Deliberate, subtle page transition for route changes. */
+main > div,
+main > article {
+  animation: page-enter 440ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  @apply rounded-xl shadow-card;
+}
+
+.metric-strip {
+  border: 1px solid var(--line);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--panel) 100%, transparent), color-mix(in srgb, var(--bg-soft) 55%, transparent));
+  @apply rounded-xl;
+}
+
 .article {
-  @apply space-y-4 text-slate;
+  @apply space-y-6;
+  color: var(--muted);
 }
 
 .article h1,
 .article h2,
 .article h3 {
-  @apply font-heading text-ink;
+  color: var(--text);
+  @apply font-heading;
 }
 
 .article h1 {
-  @apply text-3xl;
+  @apply text-3xl md:text-4xl;
 }
 
 .article h2 {
-  @apply mt-8 text-2xl;
+  @apply mt-10 text-2xl md:text-3xl;
 }
 
 .article h3 {
-  @apply mt-6 text-xl;
+  @apply mt-8 text-xl md:text-2xl;
 }
 
 .article p {
-  @apply leading-7;
+  @apply text-base leading-8 md:text-lg;
 }
 
 .article ul {
-  @apply list-disc space-y-2 pl-5;
+  @apply list-disc space-y-2 pl-6;
 }
 
 .article code {
-  @apply rounded bg-slate-100 px-1 py-0.5 text-sm;
+  @apply rounded bg-slate-100 px-1 py-0.5 text-sm dark:bg-slate-800;
 }
 
 .article pre {
-  @apply overflow-x-auto rounded-md bg-slate-900 p-4 text-slate-100;
+  @apply overflow-x-auto rounded-lg bg-slate-900 p-5 text-slate-100;
 }
 
 .article pre code {
   @apply bg-transparent p-0 text-slate-100;
+}
+
+a,
+button {
+  @apply transition-all duration-300 ease-premium;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 45%, transparent) transparent;
+}
+
+/* Dark mode fallback overrides for existing utility classes used across pages. */
+.dark .text-ink {
+  color: #e5ecf5 !important;
+}
+
+.dark .text-slate {
+  color: #9eb0c6 !important;
+}
+
+.dark .bg-white {
+  background-color: #101b30 !important;
+}
+
+.dark .border-slate-200 {
+  border-color: #24364f !important;
 }

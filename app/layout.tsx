@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -45,13 +46,28 @@ const personSchema = {
   url: siteConfig.url,
 };
 
+const themeInit = `
+  (function() {
+    try {
+      var saved = localStorage.getItem('site-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var useDark = saved ? saved === 'dark' : prefersDark;
+      if (useDark) document.documentElement.classList.add('dark');
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInit}
+        </Script>
         <Script id="person-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(personSchema)}
         </Script>
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -22,15 +22,15 @@ export default function BlogPage() {
       <SectionHeading
         label="Blog"
         title="Insights and Reflections"
-        description="A professional writing hub combining on-site long-form articles with real Medium publishing activity."
+        description="Long-form, finance-oriented writing with publication-quality structure and disciplined analytical tone."
       />
 
-      <section className="rounded-lg border border-slate-200 bg-white p-6">
+      <section className="section-panel p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-2">
-            <h2 className="font-heading text-2xl text-ink">Featured Writing and Publications</h2>
-            <p className="max-w-3xl text-sm text-slate">{mediumProfile.bio}</p>
-            <p className="text-xs text-slate-500">{mediumProfile.followersText}</p>
+            <h2 className="font-heading text-2xl text-ink dark:text-slate-100">Featured Writing and Publications</h2>
+            <p className="max-w-3xl text-sm leading-7 text-slate dark:text-slate-300">{mediumProfile.bio}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{mediumProfile.followersText}</p>
           </div>
           <div className="flex gap-3">
             <CtaButton href={siteConfig.medium} variant="secondary">
@@ -51,8 +51,8 @@ export default function BlogPage() {
         <p className="mt-4 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
           Editable placeholder: {editablePlaceholders.mediumAdditionalArticles}
         </p>
-        <p className="mt-3 text-sm text-slate">
-          Full Medium profile: <Link href={siteConfig.medium} className="font-semibold text-navy hover:text-ink" target="_blank" rel="noreferrer">{siteConfig.medium}</Link>
+        <p className="mt-3 text-sm text-slate dark:text-slate-300">
+          Full Medium profile: <Link href={siteConfig.medium} className="font-semibold text-navy hover:text-ink dark:text-steel dark:hover:text-slate-100" target="_blank" rel="noreferrer">{siteConfig.medium}</Link>
         </p>
       </section>
 

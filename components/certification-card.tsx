@@ -6,19 +6,19 @@ export function CertificationCard({ certification }: { certification: Certificat
   return (
     <Card className="h-full space-y-3">
       <div>
-        <h3 className="font-heading text-xl text-ink">{certification.name}</h3>
-        <p className="text-sm font-semibold text-slate">{certification.issuer}</p>
+        <h3 className="font-heading text-xl text-ink dark:text-slate-100">{certification.name}</h3>
+        <p className="text-sm font-semibold text-slate dark:text-slate-300">{certification.issuer}</p>
       </div>
 
-      <p className="text-sm text-slate">
+      <p className="text-sm text-slate dark:text-slate-300">
         {certification.date ? `Issued: ${certification.date}` : "Issue date not publicly listed"}
       </p>
 
       <div className="flex items-center justify-between text-xs">
-        <span className="rounded bg-slate-100 px-2 py-1 font-semibold uppercase tracking-wider text-slate-700">
+        <span className="rounded border border-slate-200 bg-slate-50 px-2 py-1 font-semibold uppercase tracking-wider text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
           {certification.relevance}
         </span>
-        <span className="text-slate-500">Source: {certification.source}</span>
+        <span className="text-slate-500 dark:text-slate-400">Source: {certification.source}</span>
       </div>
 
       {certification.credentialUrl ? (
@@ -26,12 +26,12 @@ export function CertificationCard({ certification }: { certification: Certificat
           href={certification.credentialUrl}
           target="_blank"
           rel="noreferrer"
-          className="text-sm font-semibold text-navy hover:text-ink"
+          className="text-sm font-semibold text-navy hover:text-ink dark:text-steel dark:hover:text-slate-100"
         >
           View Credential
         </Link>
       ) : (
-        <p className="text-xs text-slate-500">Credential URL can be added later.</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400">Credential URL can be added later.</p>
       )}
     </Card>
   );

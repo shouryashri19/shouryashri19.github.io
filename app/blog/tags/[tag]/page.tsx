@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogCard } from "@/components/blog-card";
+import { SectionHeading } from "@/components/section-heading";
 import { TagChip } from "@/components/tag-chip";
 import { getPostsByTag, getTags } from "@/lib/blog";
 
@@ -29,7 +30,7 @@ export default async function TagPage({
   const { tag } = await params;
   const normalizedTag = decodeURIComponent(tag).toLowerCase();
   const tags = getTags();
-  const tagMatch = tags.find((tag) => tag.toLowerCase() === normalizedTag);
+  const tagMatch = tags.find((item) => item.toLowerCase() === normalizedTag);
 
   if (!tagMatch) {
     notFound();
@@ -39,15 +40,15 @@ export default async function TagPage({
 
   return (
     <div className="space-y-10 py-12 md:py-16">
-      <header className="space-y-3">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-steel">Blog Tag</p>
-        <h1 className="font-heading text-4xl text-ink">{tagMatch}</h1>
-        <p className="text-slate">{posts.length} post(s) in this category.</p>
-      </header>
+      <SectionHeading
+        label="Blog Tag"
+        title={tagMatch}
+        description={`${posts.length} post(s) in this category.`}
+      />
 
       <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <TagChip key={tag} tag={tag} active={tag === tagMatch} />
+        {tags.map((item) => (
+          <TagChip key={item} tag={item} active={item === tagMatch} />
         ))}
       </div>
 
