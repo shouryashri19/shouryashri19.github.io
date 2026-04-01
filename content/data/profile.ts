@@ -7,21 +7,52 @@
   bullets: string[];
 };
 
+export type ProjectCategory =
+  | "Finance Modeling"
+  | "Valuation"
+  | "Business Analytics"
+  | "Research"
+  | "Markets";
+
 export type ProjectItem = {
-  name: string;
+  title: string;
   subtitle: string;
+  category: ProjectCategory;
   summary: string;
-  skills: string[];
+  whyItMatters: string;
+  tools: string[];
   highlights: string[];
+  projectUrl?: string;
+  source: "resume" | "linkedin" | "resume+linkedin";
+};
+
+export type CertificationItem = {
+  name: string;
+  issuer: string;
+  date?: string;
+  credentialUrl?: string;
+  relevance: "high" | "core" | "supporting";
+  source: "resume" | "linkedin" | "resume+linkedin";
+};
+
+export type ExternalArticle = {
+  title: string;
+  platform: "Medium";
+  date?: string;
+  readTime?: string;
+  summary: string;
+  url: string;
+  tags: string[];
 };
 
 export const profile = {
   name: "Shourya Shrivastava",
-  headline: "Master of Financial Analysis Candidate focused on investment banking, valuation, and strategic finance.",
+  headline:
+    "Master of Financial Analysis candidate focused on investment banking, valuation, and business-driven financial analysis.",
   shortIntro:
-    "I am a data-driven finance graduate student at Rutgers Business School with hands-on experience in pricing analysis, financial reporting, and cross-functional business support. My work combines rigorous quantitative analysis with practical decision support for business stakeholders.",
+    "I am a finance graduate student at Rutgers Business School with hands-on experience in pricing analysis, reporting workflows, and data-backed decision support. I combine quantitative rigor with structured communication to support stakeholder decisions in fast-paced environments.",
   summary:
-    "Data-driven analyst with a Master of Financial Analysis and experience in pricing analysis, business operations support, CRM and ERP data workflows, and stakeholder reporting. Proficient in Excel, SQL, R, Tableau, and Oracle NetSuite, with active development in Salesforce ecosystem capabilities.",
+    "Data-driven analyst with a Master of Financial Analysis and experience in pricing analytics, business operations support, CRM and ERP data workflows, and cross-functional reporting. Proficient in Excel, SQL, R, Tableau, and Oracle NetSuite, with a strong focus on valuation discipline and market-aware financial reasoning.",
   values: [
     "Analytical discipline",
     "Structured communication",
@@ -30,9 +61,9 @@ export const profile = {
     "Continuous professional growth",
   ],
   currentlyExploring: [
-    "Advanced valuation and corporate finance case execution",
-    "Capital markets narratives and macro-to-micro business analysis",
-    "Workflow automation for recurring financial reporting",
+    "Advanced valuation case execution for investment banking interviews",
+    "Macro-to-micro market analysis for equity and credit narratives",
+    "Workflow automation for recurring reporting and operational finance tasks",
   ],
 };
 
@@ -111,16 +142,84 @@ export const experiences: ExperienceItem[] = [
 
 export const projects: ProjectItem[] = [
   {
-    name: "Procter & Gamble Health and Hygiene India",
+    title: "Procter and Gamble Health and Hygiene India",
     subtitle: "Financial Modeling and Valuation Report",
+    category: "Finance Modeling",
     summary:
-      "Developed an end-to-end financial planning and valuation model focused on pricing, revenue implications, and scenario evaluation.",
-    skills: ["Financial Modeling", "DCF", "WACC", "Sensitivity Analysis", "Excel"],
+      "Developed an end-to-end financial planning and valuation model focused on pricing scenarios and revenue implications across product lines.",
+    whyItMatters:
+      "Demonstrates investment banking-relevant modeling discipline, assumption testing, and strategy-ready recommendation framing.",
+    tools: ["Excel", "Three-Statement Modeling", "DCF", "WACC", "Sensitivity Analysis"],
     highlights: [
       "Built a three-statement model with a 25+ KPI dashboard and scenario planning modules.",
-      "Applied DCF valuation, WACC assumptions, and sensitivity analysis for decision support.",
-      "Produced product-level commercial recommendations designed for business stakeholders.",
+      "Applied DCF valuation and sensitivity analysis to stress test assumptions.",
+      "Converted model outputs into product-level commercial recommendations for stakeholders.",
     ],
+    source: "resume+linkedin",
+  },
+  {
+    title: "Pricing Analytics Dashboard Suite",
+    subtitle: "Yes Bank Internship Project",
+    category: "Business Analytics",
+    summary:
+      "Built dashboards and variance-analysis views for budget-versus-actual tracking across multiple business segments.",
+    whyItMatters:
+      "Shows ability to convert large raw datasets into management-ready views for pricing and operating decisions.",
+    tools: ["Excel", "R", "Variance Analysis", "Data Validation"],
+    highlights: [
+      "Managed and organized 5,000+ data points spanning 10+ segments.",
+      "Developed reporting outputs used for cross-functional pricing discussions.",
+      "Supported requirement gathering to keep analysis aligned with operational workflows.",
+    ],
+    source: "resume+linkedin",
+  },
+  {
+    title: "ERP Reporting and Cost Optimization Analysis",
+    subtitle: "UFlex Research Internship",
+    category: "Research",
+    summary:
+      "Used Oracle NetSuite workflows and reporting to evaluate budget-to-actual performance and identify optimization opportunities.",
+    whyItMatters:
+      "Highlights operational finance analysis with measurable impact and systems-level execution discipline.",
+    tools: ["Oracle NetSuite", "Budget vs Actual", "UAT", "Reporting"],
+    highlights: [
+      "Identified INR 2M in cost optimization opportunities through structured analysis.",
+      "Supported UAT of reporting templates to improve output reliability.",
+      "Maintained high data integrity standards across finance workflows.",
+    ],
+    source: "resume+linkedin",
+  },
+  {
+    title: "Revenue and Pricing Trend Intelligence",
+    subtitle: "MedTourEasy Analytics Traineeship",
+    category: "Markets",
+    summary:
+      "Analyzed operational and revenue trend data to support pricing intelligence and business decision-making.",
+    whyItMatters:
+      "Demonstrates practical use of analytics tools to support commercial and finance decisions in real project settings.",
+    tools: ["SQL", "R", "Tableau", "Power BI"],
+    highlights: [
+      "Built visual analytics outputs for revenue and pricing trend interpretation.",
+      "Presented findings in a stakeholder-friendly format under tight deadlines.",
+      "Resolved data-quality issues to improve signal reliability.",
+    ],
+    source: "resume+linkedin",
+  },
+  {
+    title: "Hypergeometric Distribution Application in Financial Modelling",
+    subtitle: "Research and Publication Project",
+    category: "Valuation",
+    summary:
+      "Co-authored published research on financial literacy and decision-making with quantitative modeling applications.",
+    whyItMatters:
+      "Signals research rigor, technical writing quality, and ability to connect statistical frameworks with financial behavior analysis.",
+    tools: ["Research Design", "Quantitative Analysis", "Academic Writing"],
+    highlights: [
+      "Published in IJARESM (Vol. 12, No. 11).",
+      "Connected mathematical modeling concepts to applied finance decision contexts.",
+      "Presented research findings in conference settings.",
+    ],
+    source: "resume+linkedin",
   },
 ];
 
@@ -148,6 +247,43 @@ export const leadership = [
       "Increased recruiter engagement by 50% through structured outreach and relationship management.",
       "Secured INR 75K in sponsorship support while managing deadlines and execution plans.",
     ],
+  },
+];
+
+export const linkedInHighlights = {
+  profileUrl: "https://www.linkedin.com/in/shourya-shrivastava-394035257/",
+  note:
+    "LinkedIn is integrated as a primary profile hub. Direct automated extraction can be rate-limited by LinkedIn, so this section is intentionally structured for quick manual sync.",
+  verifiedFromResumeAndVisibleProfile: [
+    "Master of Financial Analysis candidate at Rutgers Business School.",
+    "Experience in pricing analysis, reporting workflows, and stakeholder communication.",
+    "Active focus on finance, economics, and business-oriented research writing.",
+  ],
+  manualSyncPlaceholders: [
+    "Add LinkedIn headline exactly as displayed.",
+    "Add featured links (project decks, certificates, publications) from your LinkedIn Featured section.",
+    "Add volunteer or organization entries visible on LinkedIn if you want them shown publicly.",
+  ],
+};
+
+export const mediumProfile = {
+  profileUrl: "https://medium.com/@shouryashri19",
+  bio:
+    "Finance grad student at Rutgers Business School. Research in finance, economics, and sustainable business. Writing to share insights and maintain a disciplined writing practice.",
+  followersText: "4 followers (publicly visible at time of integration)",
+};
+
+export const mediumArticles: ExternalArticle[] = [
+  {
+    title:
+      "When Wall Street Sneezes, the World Catches a Cold: Spillovers of U.S. Employment Situation Report",
+    platform: "Medium",
+    date: "Sep 30, 2025",
+    readTime: "4 min read",
+    summary:
+      "A macro-finance essay examining how U.S. labor data reshapes monetary expectations, global capital flows, and cross-border asset pricing.",
+    url: "https://medium.com/@shouryashri19/when-wall-street-sneezes-the-world-catches-a-cold-spillovers-of-u-s-employment-situation-report-175cf0e57260",
+    tags: ["Finance", "Employment", "Business", "Markets"],
   },
 ];
 
@@ -182,16 +318,68 @@ export const skills = {
   ],
 };
 
-export const certifications = [
-  "Bloomberg Market Concepts (2026)",
-  "Bloomberg Spreadsheet Analysis (2026)",
-  "J.P. Morgan Investment Banking Simulation (Forage, 2025)",
-  "Introduction to Strategy Consulting Job Simulation (BCG Forage, 2024)",
-  "Management Consulting Virtual Experience Program (PwC Forage, 2023)",
-  "Google Data Analytics Specialization (Coursera, 2023)",
-  "Google Data Analytics Capstone: Case Study (Coursera, 2023)",
-  "Data Analysis with R Programming (Coursera, 2023)",
+export const certifications: CertificationItem[] = [
+  {
+    name: "Bloomberg Market Concepts",
+    issuer: "Bloomberg for Education",
+    date: "2026",
+    relevance: "high",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Bloomberg Spreadsheet Analysis",
+    issuer: "Bloomberg for Education",
+    date: "2026",
+    relevance: "high",
+    source: "resume+linkedin",
+  },
+  {
+    name: "J.P. Morgan Investment Banking Simulation",
+    issuer: "Forage",
+    date: "2025",
+    relevance: "high",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Introduction to Strategy Consulting Job Simulation",
+    issuer: "BCG Forage",
+    date: "2024",
+    relevance: "core",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Management Consulting Virtual Experience Program",
+    issuer: "PwC Forage",
+    date: "2023",
+    relevance: "core",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Google Data Analytics Specialization",
+    issuer: "Coursera",
+    date: "2023",
+    relevance: "core",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Google Data Analytics Capstone: Case Study",
+    issuer: "Coursera",
+    date: "2023",
+    relevance: "supporting",
+    source: "resume+linkedin",
+  },
+  {
+    name: "Data Analysis with R Programming",
+    issuer: "Coursera",
+    date: "2023",
+    relevance: "supporting",
+    source: "resume+linkedin",
+  },
 ];
+
+export const topCertifications = certifications.filter(
+  (item) => item.relevance === "high" || item.relevance === "core",
+);
 
 export const additionalHighlights = [
   "Selected from 50,000+ global applicants and won the Impact Challenge at Harvard Project for Asia and International Relations 2025.",
@@ -200,8 +388,13 @@ export const additionalHighlights = [
 ];
 
 export const editablePlaceholders = {
-  linkedin: "Replace site-config linkedIn with your exact profile URL.",
-  github: "Replace site-config github if you want a public code profile displayed.",
+  linkedinHeadline: "Add exact LinkedIn headline here after each profile update.",
+  linkedinFeaturedLinks:
+    "Add verified LinkedIn Featured URLs (project decks, case studies, credentials) once available publicly.",
+  mediumAdditionalArticles:
+    "Add additional Medium article URLs and summaries as you publish more writing.",
+  certificationCredentials:
+    "Add credential URLs for each certificate when you want clickable verification.",
   bioPersonal:
     "Add a 2-3 sentence personal narrative on why you chose finance and your long-term goal in investment banking/private equity.",
   testimonials: "Add quotes from supervisors, professors, or team leads.",

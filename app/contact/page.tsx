@@ -2,7 +2,7 @@
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/card";
 import { CtaButton } from "@/components/cta-button";
-import { editablePlaceholders } from "@/content/data/profile";
+import { editablePlaceholders, mediumProfile } from "@/content/data/profile";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -30,6 +30,9 @@ export default function ContactPage() {
           <p className="text-slate">Location: {siteConfig.location}</p>
           <div className="flex flex-wrap gap-3 pt-2">
             <CtaButton href={siteConfig.linkedIn}>LinkedIn</CtaButton>
+            <CtaButton href={siteConfig.medium} variant="secondary">
+              Medium
+            </CtaButton>
             <CtaButton href={siteConfig.github} variant="secondary">
               GitHub
             </CtaButton>
@@ -38,8 +41,9 @@ export default function ContactPage() {
             </CtaButton>
           </div>
           <p className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-            Editable placeholder: {editablePlaceholders.linkedin}
+            LinkedIn sync placeholder: {editablePlaceholders.linkedinHeadline}
           </p>
+          <p className="text-xs text-slate-500">Medium note: {mediumProfile.followersText}</p>
         </Card>
 
         <Card className="space-y-4">

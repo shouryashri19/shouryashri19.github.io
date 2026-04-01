@@ -1,14 +1,16 @@
 ﻿# Shourya Shrivastava Portfolio Website
 
-A production-ready personal portfolio and blog built with Next.js, React, TypeScript, and Tailwind CSS for a finance-oriented professional brand.
+A production-ready personal portfolio for finance, investment banking, and business careers, built with Next.js + TypeScript + Tailwind.
 
 ## Stack
 
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS
-- Markdown-based blog content (`content/blog`)
-- GitHub Actions scheduler for automatic daily blog publishing
+- Markdown-based blog (`content/blog`)
+- GitHub Actions for:
+  - daily blog generation
+  - GitHub Pages deployment
 
 ## Local Setup
 
@@ -27,11 +29,10 @@ npm run dev
 
 4. Open `http://localhost:3000`.
 
-## Build and Run Production
+## Build (Production Check)
 
 ```bash
 npm run build
-npm run start
 ```
 
 ## Project Structure
@@ -41,15 +42,18 @@ app/
   about/
   blog/
     [slug]/
+    archive/
     tags/[tag]/
+  certifications/
   contact/
   education/
   projects/
   resume/
   skills/
-  layout.tsx
-  page.tsx
 components/
+  article-card.tsx
+  certification-card.tsx
+  project-card.tsx
 content/
   blog/
   data/profile.ts
@@ -61,40 +65,76 @@ scripts/
   generate-daily-post.mjs
 .github/workflows/
   daily-blog.yml
-public/
-  Shourya_Shrivastava_Resume.pdf
+  pages.yml
 ```
 
-## Resume-Driven Content
+## LinkedIn + Medium Integration
 
-Resume-backed content is centralized in:
-
-- `content/data/profile.ts`
-
-Update this file to edit:
-
-- Bio and summary
-- Education
-- Experience
-- Projects
-- Skills
-- Certifications
-- Highlights
-
-Also update professional links in:
+Profile links are configured in:
 
 - `lib/site-config.ts`
 
-## Blog Content Workflow
+Content architecture is in:
 
-### Manual post creation
+- `content/data/profile.ts`
 
-Add markdown files in `content/blog/`:
+### LinkedIn integration points
+
+- Home hero CTA
+- Home LinkedIn Highlights panel
+- About page LinkedIn section
+- Contact page CTA
+- Footer link
+
+### Medium integration points
+
+- Home Featured Writing cards
+- Blog page "Featured Writing and Publications" section
+- About writing identity section
+- Contact page CTA
+- Footer link
+
+## Data Source Notes
+
+This project uses resume + publicly visible Medium content + LinkedIn profile URL as primary profile references.
+
+- Resume source path used in project setup:
+  - `c:\Users\SHOURYA\OneDrive\Desktop\Applications\Shourya_Shrivastava_Resume.pdf`
+- LinkedIn URL:
+  - `https://www.linkedin.com/in/shourya-shrivastava-394035257/`
+- Medium URL:
+  - `https://medium.com/@shouryashri19`
+
+Important:
+
+- LinkedIn can block unauthenticated scraping/rate-limit automated extraction.
+- Because of this, `content/data/profile.ts` includes explicit manual-sync placeholders for LinkedIn-only items (headline, featured links, credential URLs, optional volunteer/organization entries).
+- No fake projects/certifications/awards are added.
+
+## Projects and Certifications Architecture
+
+Reusable components:
+
+- `components/project-card.tsx`
+- `components/certification-card.tsx`
+- `components/article-card.tsx`
+
+Dedicated certifications page:
+
+- `/certifications`
+
+To add a project/certification/article, edit arrays in:
+
+- `content/data/profile.ts`
+
+## Blog System (Upgraded)
+
+### Manual post format
 
 ```md
 ---
-title: "Your Title"
-excerpt: "Short summary"
+title: "Your title"
+excerpt: "Summary"
 date: "2026-04-01"
 tags:
   - Finance Careers
@@ -102,84 +142,64 @@ featured: false
 published: true
 ---
 
-Your post body here.
+Paragraph 1...
+
+Paragraph 2...
+
+Paragraph 3...
+
+Paragraph 4...
+
+Paragraph 5...
 ```
 
-### Automatic daily publishing (8:00 AM local time)
+### Daily automation
 
-Automation is implemented in:
+- Workflow: `.github/workflows/daily-blog.yml`
+- Generator: `scripts/generate-daily-post.mjs`
 
-- Scheduler: `.github/workflows/daily-blog.yml`
-- Generator script: `scripts/generate-daily-post.mjs`
+### Quality gates enforced in generator
 
-How it works:
+- minimum 5 full paragraphs
+- minimum 70 words per paragraph
+- minimum 500 words total
+- duplicate paragraph detection
+- finance/business/professional topic library
 
-1. GitHub Action runs hourly.
-2. Script checks local hour in configured timezone.
-3. At configured hour (default `8`), it generates a new post in `content/blog/`.
-4. If review is required, it opens a PR.
-5. If review is not required, it commits directly to the default branch.
-
-### Configure publish behavior
-
-Set GitHub Repository Variables:
+### Scheduler configuration (GitHub Variables)
 
 - `BLOG_TIMEZONE` (default `America/New_York`)
 - `BLOG_PUBLISH_HOUR_LOCAL` (default `8`)
-- `REQUIRE_REVIEW` (`true` or `false`, default `true`)
-- `PUBLISH_MODE` (`published` or `draft`, default `published`)
+- `REQUIRE_REVIEW` (`true` recommended)
+- `PUBLISH_MODE` (`published` or `draft`)
 
-### Force publish manually
+### Manual trigger
 
-Run the workflow manually with:
+Use workflow dispatch with:
 
 - `force_publish = true`
-- Optional `publish_mode = draft` for review-only output
+- optional `publish_mode = draft`
 
-## Safety and Review Controls
+## GitHub Pages Deployment
 
-- `REQUIRE_REVIEW=true` routes automated output through pull requests.
-- `PUBLISH_MODE=draft` writes posts with `published: false` so they do not appear live.
-- Existing slug check prevents duplicate posts for the same day/topic.
-
-## Deployment
-
-Recommended: Vercel.
-
-1. Push this repository to GitHub.
-2. Import project in Vercel.
-3. Deploy with default Next.js settings.
-4. Add custom domain and update `lib/site-config.ts` (`url`) to production domain.
-
-Also compatible with Netlify and most Node hosting providers.
-
-## GitHub Pages Deployment (Configured)
-
-This project is pre-configured for a GitHub Pages user site at:
+Configured for user site:
 
 - `https://shouryashri19.github.io/`
 
-Files already wired:
+Deployment workflow:
 
-- `next.config.mjs` (static export + repo basePath)
-- `.github/workflows/pages.yml` (build and deploy pipeline)
+- `.github/workflows/pages.yml`
 
 Steps:
 
-1. Create repository `shouryashri19.github.io` under `shouryashri19`.
-2. Push this folder to the `main` branch.
-3. In GitHub repo settings, open `Pages`.
-4. Set source to `GitHub Actions`.
-5. Wait for workflow `Deploy to GitHub Pages` to finish.
+1. Push to `main` in `shouryashri19.github.io` repo.
+2. In repo settings, set Pages source to `GitHub Actions`.
+3. Wait for `Deploy to GitHub Pages` workflow to finish.
 
-## Notes on Source Data
+## Routine Maintenance Checklist
 
-Primary source was your uploaded resume PDF path:
-
-- `c:\Users\SHOURYA\OneDrive\Desktop\Applications\Shourya_Shrivastava_Resume.pdf`
-
-In this local environment, direct PDF text extraction tools were unavailable, so content extraction used the editable resume companion file available in the same folder:
-
-- `Shourya Shrivastava Resume Editable.docx`
-
-Please run a final factual pass against your PDF before deployment and adjust `content/data/profile.ts` where needed.
+1. Update new experience/projects/certifications in `content/data/profile.ts`.
+2. Add credential URLs when available.
+3. Add new Medium article references under `mediumArticles`.
+4. Review daily generated blog PRs before merging when `REQUIRE_REVIEW=true`.
+5. Keep `site-config.ts` links current.

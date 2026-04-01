@@ -1,7 +1,8 @@
 ﻿import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/card";
-import { skills } from "@/content/data/profile";
+import { CertificationCard } from "@/components/certification-card";
+import { skills, topCertifications } from "@/content/data/profile";
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -44,6 +45,15 @@ export default function SkillsPage() {
             ))}
           </ul>
         </Card>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="font-heading text-2xl text-ink">Top Certifications Snapshot</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {topCertifications.slice(0, 4).map((certification) => (
+            <CertificationCard key={`${certification.name}-${certification.issuer}`} certification={certification} />
+          ))}
+        </div>
       </section>
     </div>
   );

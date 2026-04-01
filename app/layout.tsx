@@ -41,7 +41,7 @@ const personSchema = {
     addressLocality: "New Jersey",
     addressCountry: "US",
   },
-  sameAs: [siteConfig.linkedIn, siteConfig.github],
+  sameAs: [siteConfig.linkedIn, siteConfig.medium, siteConfig.github],
   url: siteConfig.url,
 };
 

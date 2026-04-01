@@ -1,7 +1,8 @@
 ﻿import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/card";
-import { certifications, conferences, education, publications } from "@/content/data/profile";
+import { CertificationCard } from "@/components/certification-card";
+import { certifications, conferences, education, publications, topCertifications } from "@/content/data/profile";
 
 export const metadata: Metadata = {
   title: "Education",
@@ -62,13 +63,18 @@ export default function EducationPage() {
         </Card>
       </section>
 
-      <Card>
-        <h2 className="font-heading text-2xl text-ink">Certifications</h2>
-        <ul className="mt-3 grid gap-2 text-slate md:grid-cols-2">
-          {certifications.map((cert) => (
-            <li key={cert}>- {cert}</li>
+      <section className="space-y-4">
+        <h2 className="font-heading text-2xl text-ink">Top Certifications</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {topCertifications.map((cert) => (
+            <CertificationCard key={`${cert.name}-${cert.issuer}`} certification={cert} />
           ))}
-        </ul>
+        </div>
+      </section>
+
+      <Card>
+        <h2 className="font-heading text-2xl text-ink">Complete Certification Count</h2>
+        <p className="mt-2 text-slate">{certifications.length} certifications are listed in the dedicated Certifications page.</p>
       </Card>
     </div>
   );

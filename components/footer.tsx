@@ -10,9 +10,15 @@ export function Footer() {
         <p>
           {year} {siteConfig.name}. Built for a professional finance and strategy profile.
         </p>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-5">
           <Link className="hover:text-navy" href="/blog">
             Blog
+          </Link>
+          <Link className="hover:text-navy" href={siteConfig.medium} target="_blank" rel="noreferrer">
+            Medium
+          </Link>
+          <Link className="hover:text-navy" href={siteConfig.linkedIn} target="_blank" rel="noreferrer">
+            LinkedIn
           </Link>
           <Link className="hover:text-navy" href="/contact">
             Contact
